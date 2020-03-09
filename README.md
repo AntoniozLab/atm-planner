@@ -1,6 +1,6 @@
 # Gestión de Requerimientos
 
-Este proyecto brinda un sistema para la gestión de requerimientos de instalaciones de cajeros.
+Este proyecto brinda un sistema de gestión de requerimientos para instalaciones de cajeros.
 
 ## Installation
 
