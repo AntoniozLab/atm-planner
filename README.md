@@ -12,7 +12,6 @@ Esta aplicación web permitirá la gestión ágil de requerimientos de cajeros a
 
   - [Git](https://git-scm.com/)
   - [Ruby 2.6.5](https://www.ruby-lang.org/es/)
-  - [Ruby 2.6.5](https://www.ruby-lang.org/es/)
   - [SQLite 3](https://www.sqlite.org/index.html)
   - [Node JS](https://nodejs.org/es/)
   - [Yarn](https://yarnpkg.com/)
