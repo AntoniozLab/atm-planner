@@ -1,33 +1,41 @@
-# README
+# Gestión de Requerimientos de Cajeros Automáticos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta aplicación web permitirá la gestión ágil de requerimientos de cajeros automáticos. La aplicación cumplirá fundamentalmente las siguientes funciones:
 
-Things you may want to cover:
+- Autenticación de usuarios.
+- Interacción con los responsables.
+- Centralizar información de los requerimientos.
+- Visualizar reportes y descargarlos.
 
-* Ruby version
 
-* System dependencies
+## Prerrequisitos
 
-* Configuration
+  - [Git](https://git-scm.com/)
+  - [Ruby 2.6.5](https://www.ruby-lang.org/es/)
+  - [Ruby 2.6.5](https://www.ruby-lang.org/es/)
+  - [SQLite 3](https://www.sqlite.org/index.html)
+  - [Node JS](https://nodejs.org/es/)
+  - [Yarn](https://yarnpkg.com/)
 
-* Database creation
+## Configuration
 
-* Database initialization
+## Database creation
 
-* How to run the test suite
+## Database initialization
 
-* Services (job queues, cache servers, search engines, etc.)
+## How to run the test suite
 
-* Deployment instructions
+## Services (job queues, cache servers, search engines, etc.)
 
-* Contributors ✨
+## Deployment instructions
 
-    * [José Arellano](https://github.com/jagarell)
-    * [Alonso Vento](https://github.com/AlonsoNeo)
-    * [Vladimir Jaco](https://github.com/vladymon)
-    * [Jose Luis Sanchez](https://github.com/jozze21net)
-    * [Juan Cahuana](https://github.com/jcahuana)
+## Contributors ✨
 
-* License
-    [MIT](https://choosealicense.com/licenses/mit/)
+  * [José Arellano](https://github.com/jagarell)
+  * [Alonso Vento](https://github.com/AlonsoNeo)
+  * [Vladimir Jaco](https://github.com/vladymon)
+  * [Jose Luis Sanchez](https://github.com/jozze21net)
+  * [Juan Cahuana](https://github.com/jcahuana)
+
+## License
+  [MIT](https://choosealicense.com/licenses/mit/)
