@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registrar RQ</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	REGISTRAR RQ
+	<br>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+	  <a class="navbar-brand" href="#">Logo</a>
+
+	     <!-- Dropdown -->
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	        Gestión Requerimientos
+	      </a>
+	      <div class="dropdown-menu">
+	        <a class="dropdown-item"> </a> <%= link_to "Registrar RQ", gestion_requerimientos_Registro_RQ_path %>  
+	        <a class="dropdown-item"> </a> <%= link_to "Seguimiento RQ", gestion_requerimientos_Seguimiento_RQ_path %>
+	        <a class="dropdown-item"> </a> <%= link_to "Actualizar RQ", gestion_requerimientos_Actualizar_RQ_path %>
+	      </div>
+	    </li>
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	        Administración Clientes
+	      </a>
+	      <div class="dropdown-menu">
+	        <a class="dropdown-item"> </a> <%= link_to "Crear Cliente", administracion_clientes_Crear_Cliente_path %>
+	        <a class="dropdown-item"> </a> <%= link_to "Editar Cliente", administracion_clientes_Editar_Cliente_path %>
+	      </div>
+	    </li>
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	        Administración Usuarios
+	      </a>
+	      <div class="dropdown-menu">
+	        <a class="dropdown-item"> </a> <%= link_to "Crear Usuario", administracion_usuarios_Crear_Usuario_path %> 
+	        <a class="dropdown-item"> </a> <%= link_to "Editar Usuario", administracion_usuarios_Editar_Usuario_path %>
+	      </div>
+	    </li>
+	  </ul>
+	</nav>
+
+	<br>
+	<br>
+	
+	<div>
+
+		<div class="row">
+
+			<div class="col-12">
+
+				<div class="col-2">
+					<!-- campo vacío -->
+				</div>
+
+				<div class="col-10">
+					<!-- campo vacío -->	
+
+					<form>
+						<div class="row">
+
+							<div class="col-4">
+								<h5>Registrar Requerimiento</h5>
+								<br>
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col-4 class-group">
+								<label for="ID_Cliente">ID Cliente:</label>
+						    	<input type="text" class="form-control" id="ID_Cliente">
+							</div>
+								
+						</div>
+
+						<div class="row">
+							<div class="col-4">
+								<br>
+								<button type="button" class="btn btn-outline-success">BUSCAR</button>								
+							</div>
+							
+						</div>
+
+						<div class="row">
+
+							<div class="col-4 class-group">
+								<br>
+								<label for="Nombre_RzSocial">Nombre / Razón Social:</label>
+						    	<input type="text" class="form-control" id="Nombre_RzSocial">
+							</div>
+
+							<div class="col-4 class-group">
+								<br>
+								<label for="DireccionCliente">Dirección Cliente:</label>
+						    	<input type="text" class="form-control" id="DireccionCliente">
+							</div>
+
+							<div class="col-4 class-group">
+								<br>
+								<label for="DireccionRQ">Dirección Requerimiento:</label>
+						    	<input type="text" class="form-control" id="DireccionRQ">
+							</div>
+								
+						</div>
+
+						<div class="row">
+
+							<div class="col-4 class-group">
+								<br>
+								<div class="form-group">
+								  <label for="sel1">Tipo de Requerimiento:</label>
+								  <select class="form-control" id="sel1">
+								    <option>Nueva Instalación</option>
+								    <option>Retiro Temporal</option>
+								    <option>Retiro Definitivo</option>
+								    <option>Reubicación</option>
+								    <option>Recambio</option>
+								    <option>Migración</option>
+								  </select>
+								</div>
+							</div>
+			
+						</div>
+
+
+						<div class="row">
+
+							<div class="col-8 class-group">
+								<br>
+								<label for="Observaciones">Observaciones:</label>
+						    	<textarea class="form-control"  rows = "5" id="Observaciones"></textarea> 
+							</div>
+
+							<div class="col-4 class-group">
+								<br>
+								<br>
+								<br>
+								<br>
+								<div class="col-sm-10">
+							      <button type="submit" class="btn btn-primary">REGISTRAR</button>
+							    </div>
+							</div>
+
+							
+								
+						</div>
+
+							
+					</form>
+
+
+				</div>				
+						
+			</div>
+				
+
+		</div>
+
+	</div>
+			
+
+
+</body>
+</html>

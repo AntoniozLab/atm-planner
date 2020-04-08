@@ -1,7 +1,10 @@
 class LoginController < ApplicationController
-
-  def index
-
+  def logueo
   end
 
+  def recuperacion_psw
+  end
+
+  def recuperacion_psw_nuevo_psw
+  end
 end
