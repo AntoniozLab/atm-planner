@@ -1,7 +1,7 @@
 class AdministracionClientesController < ApplicationController
-  def Crear_Cliente
+  def crear_cliente
   end
 
-  def Editar_Cliente
+  def editar_cliente
   end
 end

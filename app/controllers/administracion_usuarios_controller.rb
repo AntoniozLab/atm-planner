@@ -1,7 +1,7 @@
 class AdministracionUsuariosController < ApplicationController
-  def Crear_Usuario
+  def crear_usuario
   end
 
-  def Editar_Usuario
+  def editar_usuario
   end
 end

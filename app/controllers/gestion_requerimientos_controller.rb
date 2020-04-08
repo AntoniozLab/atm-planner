@@ -1,10 +1,10 @@
 class GestionRequerimientosController < ApplicationController
-  def Registro_RQ
+  def registro_rq
   end
 
-  def Seguimiento_RQ
+  def seguimiento_rq
   end
 
-  def Actualizar_RQ
+  def actualizar_rq
   end
 end
