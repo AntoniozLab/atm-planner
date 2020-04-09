@@ -1,38 +1,31 @@
 <!-- Logueo -->
 <div class="container pt-3 pb-3">
-  <div class="row">
-    <!-- <div class="col-6"> </div> -->
+  <div class="row justify-content-center">
 
-    <div class="col-4">
-      <form>
-        <div class="form-group row">
-          <label for="inputUsuario" class="col-sm-6 col-form-label">Usuario</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputUsuario">
+    <div class="col-sm-12 col-md-8">
+
+      <div class="container-fluid">
+        <h4 class="pb-4">INGRESE AL SISTEMA</h4>
+        <form class="form-signin">
+          <div class="form-group row">
+            <label for="inputEmail" class="sr-only">Correo</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Correo" required="" autofocus="">
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-6 col-form-label">Contraseña</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword">
+          <div class="form-group row">
+            <label for="inputPassword" class="sr-only">Contraseña</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
           </div>
-        </div>
-
-        <label id="RecuperarPSW"
-          class="col-form-label"><%= link_to "¿Olvidó Usuario o Contraseña?", login_recuperacion_psw_path %> </label>
-
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <!-- <button type="submit" class="btn btn-primary">Ingresar</button> -->
-            <%= link_to "Ingresar", home_index_path, class: "btn btn-primary" %>
+          <div class="form-group row">
+            <%= link_to "¿Olvidó usuario o contraseña?", login_recuperacion_psw_path %>
           </div>
-        </div>
-
-      </form>
+          <div class="form-group row">
+            <%= link_to "Ingresar", home_index_path, class: "btn btn-lg btn-primary btn-block" %>
+          </div>
+          <p class="mt-5 mb-3 text-muted">© 2020</p>
+        </form>
+      </div>
 
     </div>
-
-    <!-- <div class="col-2"> </div> -->
 
   </div>
 </div>

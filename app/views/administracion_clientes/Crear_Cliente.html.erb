@@ -1,159 +1,118 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#">Logo</a>
+<%= render partial: 'layouts/menu' %>
 
-  <ul class="navbar-nav mr-auto">
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Gestión Requerimientos
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item"> </a> <%= link_to "Registrar RQ", gestion_requerimientos_registro_rq_path %>
-        <a class="dropdown-item"> </a> <%= link_to "Seguimiento RQ", gestion_requerimientos_seguimiento_rq_path %>
-        <a class="dropdown-item"> </a> <%= link_to "Actualizar RQ", gestion_requerimientos_actualizar_rq_path %>
-      </div>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Administración Clientes
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item"> </a> <%= link_to "Crear Cliente", administracion_clientes_crear_cliente_path %>
-        <a class="dropdown-item"> </a> <%= link_to "Editar Cliente", administracion_clientes_editar_cliente_path %>
-      </div>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Administración Usuarios
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item"> </a> <%= link_to "Crear Usuario", administracion_usuarios_crear_usuario_path %>
-        <a class="dropdown-item"> </a> <%= link_to "Editar Usuario", administracion_usuarios_editar_usuario_path %>
-      </div>
-    </li>
-  </ul>
-</nav>
+<div class="container pt-3">
 
-<div class="pt-3">
+  <div class="row justify-content-center">
 
-  <div class="row">
+    <div class="col-10">
+      <!-- campo vacío -->
 
-    <div class="col-12">
+      <form>
+        <div class="row">
 
-      <div class="col-2">
-        <!-- campo vacío -->
-      </div>
-
-      <div class="col-10">
-        <!-- campo vacío -->
-
-        <form>
-          <div class="row">
-
-            <div class="col-4">
-              <h5>Crear Cliente</h5>
-              <br>
-            </div>
-
+          <div class="col-4">
+            <h5>Crear Cliente</h5>
+            <br>
           </div>
 
-          <div class="row">
+        </div>
 
-            <div class="col-4 class-group">
-              <div class="form-group">
-                <label for="TipoDocumento">Tipo de Documento:</label>
-                <select class="form-control" id="TipoDocumento">
-                  <option>DNI</option>
-                  <option>RUC</option>
-                  <option>CEX</option>
-                  <option>Pasaporte</option>
-                </select>
-              </div>
+        <div class="row">
+
+          <div class="col-4 class-group">
+            <div class="form-group">
+              <label for="TipoDocumento">Tipo de Documento:</label>
+              <select class="form-control" id="TipoDocumento">
+                <option>DNI</option>
+                <option>RUC</option>
+                <option>CEX</option>
+                <option>Pasaporte</option>
+              </select>
             </div>
-
-            <div class="col-4 class-group">
-              <label for="NroDocumento">Nro. Documento:</label>
-              <input type="text" class="form-control" id="NroDocumento">
-            </div>
-
           </div>
 
-          <div class="row">
-            <div class="col-8 class-group">
-              <label for="Nombre_RzSocial">Nombres / Razón Social:</label>
-              <input type="text" class="form-control" id="Nombre_RzSocial">
-            </div>
-
+          <div class="col-4 class-group">
+            <label for="NroDocumento">Nro. Documento:</label>
+            <input type="text" class="form-control" id="NroDocumento">
           </div>
 
-          <div class="row">
+        </div>
 
-            <div class="col-4 class-group">
-              <br>
-              <label for="ApPaterno">Apellido Paterno:</label>
-              <input type="text" class="form-control" id="ApPaterno">
-            </div>
-
-            <div class="col-4 class-group">
-              <br>
-              <label for="ApMaterno">Apellido Materno:</label>
-              <input type="text" class="form-control" id="ApMaterno">
-            </div>
-
+        <div class="row">
+          <div class="col-8 class-group">
+            <label for="Nombre_RzSocial">Nombres / Razón Social:</label>
+            <input type="text" class="form-control" id="Nombre_RzSocial">
           </div>
 
-          <div class="row">
+        </div>
 
-            <div class="col-8 class-group">
-              <br>
-              <label for="DireccionCliente">Dirección Cliente:</label>
-              <input type="text" class="form-control" id="DireccionCliente">
-            </div>
+        <div class="row">
 
+          <div class="col-4 class-group">
+            <br>
+            <label for="ApPaterno">Apellido Paterno:</label>
+            <input type="text" class="form-control" id="ApPaterno">
           </div>
 
-          <div class="row">
-
-            <div class="col-4 class-group">
-              <br>
-              <label for="Telefono">Teléfono:</label>
-              <input type="text" class="form-control" id="Telefono">
-            </div>
-
-            <div class="col-4 class-group">
-              <br>
-              <label for="Celular">Celular:</label>
-              <input type="text" class="form-control" id="Celular">
-            </div>
-
+          <div class="col-4 class-group">
+            <br>
+            <label for="ApMaterno">Apellido Materno:</label>
+            <input type="text" class="form-control" id="ApMaterno">
           </div>
 
-          <div class="row">
+        </div>
 
-            <div class="col-4 class-group">
-              <br>
-              <label for="E_Mail">Correo Electrónico:</label>
-              <input type="mail" class="form-control" id="E_Mail">
-            </div>
+        <div class="row">
 
-            <div class="col-4 class-group">
-              <br>
-              <br>
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">REGISTRAR</button>
-              </div>
-            </div>
-
+          <div class="col-8 class-group">
+            <br>
+            <label for="DireccionCliente">Dirección Cliente:</label>
+            <input type="text" class="form-control" id="DireccionCliente">
           </div>
 
+        </div>
 
-        </form>
+        <div class="row">
+
+          <div class="col-4 class-group">
+            <br>
+            <label for="Telefono">Teléfono:</label>
+            <input type="text" class="form-control" id="Telefono">
+          </div>
+
+          <div class="col-4 class-group">
+            <br>
+            <label for="Celular">Celular:</label>
+            <input type="text" class="form-control" id="Celular">
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-4 class-group">
+            <br>
+            <label for="E_Mail">Correo Electrónico:</label>
+            <input type="mail" class="form-control" id="E_Mail">
+          </div>
+
+          <div class="col-4 class-group">
+            <br>
+            <br>
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">REGISTRAR</button>
+            </div>
+          </div>
+
+        </div>
 
 
-      </div>
+      </form>
+
 
     </div>
+
+
 
 
   </div>

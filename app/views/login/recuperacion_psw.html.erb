@@ -1,51 +1,28 @@
+<!-- Recuperacion -->
 <div class="container pt-3 pb-3">
-  <div class="row">
+  <div class="row justify-content-center">
 
-    <div class="col-1">
-      <!-- campo vacío -->
+    <div class="col-sm-12 col-md-8">
 
-    </div>
-
-    <div class="col-4">
-      <H6>RECUPERAR USUARIO / CONTRASEÑA</H6>
-      <BR>
-      <form>
-        <div class="form-group row">
-          <label for="inputMail" class="col-sm-6 col-form-label">Correo</label>
-          <div class="col-sm-10">
-            <input type="mail" class="form-control" id="inputMail">
+      <div class="container-fluid">
+        <h4 class="pb-4">RECUPERAR USUARIO Y/CONTRASEÑA</h4>
+        <form class="form-signin">
+          <div class="form-group row">
+            <label for="inputMail" class="sr-only">Correo</label>
+            <input type="email" id="inputMail" class="form-control" placeholder="Correo" required="" autofocus="">
           </div>
-        </div>
-
-        <div class="row">
-
-          <div class="col-4">
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">RESTABLECER</button>
-              </div>
-            </div>
+          <div class="form-group row">
+            <a class="btn btn-lg btn-primary btn-block" href="/login/recuperacion_psw_nuevo_psw">Restablecer</a>
           </div>
-
-          <div class="col-4">
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">CANCELAR</button>
-              </div>
-            </div>
-
+          <div class="form-group row">
+            <a class="btn btn-lg btn-primary btn-block" href="/">Cancelar</a>
           </div>
-
-        </div>
-
-      </form>
-
-    </div>
-
-    <div class="col-7">
-      <!-- campo vacío -->
+          <p class="mt-5 mb-3 text-muted">© 2020</p>
+        </form>
+      </div>
 
     </div>
 
   </div>
 </div>
+<!-- /Recuperacion -->
