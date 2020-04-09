@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'login#logueo'
   get 'home/index'
   get 'administracion_usuarios/crear_usuario'
   get 'administracion_usuarios/editar_usuario'
