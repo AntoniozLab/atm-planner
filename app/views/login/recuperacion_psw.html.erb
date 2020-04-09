@@ -1,28 +1,46 @@
-<!-- Recuperacion -->
-<div class="container pt-3 pb-3">
+<div class="container">
+
+  <!-- Outer Row -->
   <div class="row justify-content-center">
 
-    <div class="col-sm-12 col-md-8">
+    <div class="col-xl-10 col-lg-12 col-md-9">
 
-      <div class="container-fluid">
-        <h4 class="pb-4">RECUPERAR USUARIO Y/CONTRASEÑA</h4>
-        <form class="form-signin">
-          <div class="form-group row">
-            <label for="inputMail" class="sr-only">Correo</label>
-            <input type="email" id="inputMail" class="form-control" placeholder="Correo" required="" autofocus="">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
+                  <p class="mb-4">We get it, stuff happens. Just enter your email address below and we'll send you a
+                    link to reset your password!</p>
+                </div>
+                <form class="user">
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                      aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                  </div>
+                  <a href="login.html" class="btn btn-primary btn-user btn-block">
+                    Reset Password
+                  </a>
+                </form>
+                <hr>
+                <div class="text-center">
+                  <a class="small" href="register.html">Create an Account!</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" href="login.html">Already have an account? Login!</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group row">
-            <a class="btn btn-lg btn-primary btn-block" href="/login/recuperacion_psw_nuevo_psw">Restablecer</a>
-          </div>
-          <div class="form-group row">
-            <a class="btn btn-lg btn-primary btn-block" href="/">Cancelar</a>
-          </div>
-          <p class="mt-5 mb-3 text-muted">© 2020</p>
-        </form>
+        </div>
       </div>
 
     </div>
 
   </div>
+
 </div>
-<!-- /Recuperacion -->
