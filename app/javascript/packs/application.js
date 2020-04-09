@@ -4,7 +4,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-// import 'bootstrap'
+import 'bootstrap'
 import 'static/sb-admin-2'
 
 require("@rails/ujs").start()
