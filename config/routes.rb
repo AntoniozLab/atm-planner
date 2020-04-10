@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  devise_for :users
   get '/', to: 'login#logueo'
   get 'home/index'
   get 'administracion_usuarios/crear_usuario'
