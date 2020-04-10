@@ -16,6 +16,15 @@
 </head>
 
 <body class="bg-gradient-success">
+
+  <% if notice %>
+  <p class="alert alert-primary"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
   <%= yield %>
 </body>
 
