@@ -1,0 +1,19 @@
+<% if notice %>
+<div class="d-flex justify-content-center position-absolute fixed-top">
+  <div class="alert alert-success p-3 mt-2 w-75"> <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<% end %>
+
+<% if alert %>
+<div class="d-flex justify-content-center position-absolute fixed-top">
+  <div class="alert alert-warning p-3 mt-2 w-75"> <%= alert %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<% end %>
