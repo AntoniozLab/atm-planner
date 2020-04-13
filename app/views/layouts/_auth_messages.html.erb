@@ -1,0 +1,38 @@
+<% if alert or notice %>
+  <!-- Then put toasts within -->
+    <div class="toast toast_auth_message fade position-absolute fixed-top mx-auto my-md-3" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="max-width: 400px; left: 0; right: 0;">
+      <% if notice %>
+        <div class="toast-header bg-info text-light">
+          <strong class="mr-auto">Estupendo!</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+      <% elsif alert %>
+
+        <div class="toast-header bg-warning text-light">
+          <strong class="mr-auto">Ocurrió un error</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+      <% end %>
+      <div class="toast-body">
+
+        <% if notice %>
+        <%= notice %>
+
+        <% elsif alert %>
+        <%= alert %>
+
+        <% end %>
+      </div>
+    </div>
+
+
+<script>
+  $('.toast_auth_message').toast('show');
+</script>
+<% end %>

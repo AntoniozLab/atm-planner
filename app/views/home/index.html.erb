@@ -1,1 +1,247 @@
-<%= render partial: 'layouts/menu' %>
+<div class="intro-section" id="home-section">
+
+  <div class="slide-1" style="background-image: url('<%= asset_path("landing/main-background-2.jpg") %>');"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="row align-items-center">
+            <div class="col-lg-5 mb-4">
+              <h1 data-aos="fade-up" data-aos-delay="100">ATM Request Planner</h1>
+              <p class="mb-4" data-aos="fade-up" data-aos-delay="200">Planificador de requerimientos online,
+                flexbilidad de administradoy y gestión en tiempo real.</p>
+              <p data-aos="fade-up" data-aos-delay="300"><a href="<%= new_user_session_path %>"
+                  class="btn btn-primary py-3 px-5 btn-pill">Ingresar</a></p>
+
+            </div>
+            <div class="col-lg-7 ml-auto" data-aos="fade-up" data-aos-delay="500">
+              <%= image_tag("landing/atm-planner.png", alt: "ATM Request Planner", class: "w-100 rounded") %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section" id="features-section">
+  <div class="container">
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
+        <h2 class="section-title">Características</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque! Doloribus sunt non
+          aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam, illum sed veniam!
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <%= image_tag("landing/undraw_youtube_tutorial.svg", alt: "ATM Request Planner", class: "img-fluid") %>
+      </div>
+      <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-black mb-4">Accesible dese cualquier dispositivo</h2>
+        <p class="mb-4">100% responsive, lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime nam
+          porro possimus
+          fugiat quo molestiae illo.</p>
+
+        <div class="d-flex align-items-center custom-icon-wrap mb-3">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-mobile-alt"></span></span>
+          <div>
+            <h3 class="m-0">Dispositivos móviles y de escritorio.</h3>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center custom-icon-wrap">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-bolt"></span></span>
+          <div>
+            <h3 class="m-0">Optimizado para acceso rápido.</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-7 mb-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <%= image_tag("landing/undraw_teaching.svg", alt: "ATM Request Planner", class: "img-fluid") %>
+      </div>
+      <div class="col-lg-4 mr-auto order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-black mb-4">Gestión de instalación completo</h2>
+        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime nam porro possimus
+          fugiat quo molestiae illo.</p>
+
+        <div class="d-flex align-items-center custom-icon-wrap mb-3">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-mobile-alt"></span></span>
+          <div>
+            <h3 class="m-0">22,931 Yearly Graduates</h3>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center custom-icon-wrap">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-mobile-alt"></span></span>
+          <div>
+            <h3 class="m-0">150 Universities Worldwide</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-7 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <%= image_tag("landing/undraw_teacher.svg", alt: "ATM Request Planner", class: "img-fluid") %>
+      </div>
+      <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-black mb-4">Reportes Online y Offline</h2>
+        <p class="mb-4">Posibilidad de visualizar reportes en tiempo real o exportar en múltiples formatos.</p>
+
+        <div class="d-flex align-items-center custom-icon-wrap mb-3">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-mobile-alt"></span></span>
+          <div>
+            <h3 class="m-0">22,931 Yearly Graduates</h3>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center custom-icon-wrap">
+          <span class="custom-icon-inner mr-3"><span class="icon fas fa-mobile-alt"></span></span>
+          <div>
+            <h3 class="m-0">150 Universities Worldwide</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="site-section" id="about-section">
+  <div class="container">
+
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-7 mb-5 text-center" data-aos="fade-up" data-aos-delay="">
+        <h2 class="section-title">Nosotros</h2>
+        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat aut neque!
+          Doloribus sunt non aut reiciendis, vel recusandae obcaecati hic dicta repudiandae in quas quibusdam ullam,
+          illum sed veniam!</p>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="about text-center">
+          <%= image_tag("landing/avatars/jose-arellano.png", alt: "José Arellano", class: "img-fluid w-50 rounded-circle mx-auto mb-4") %>
+          <div class="py-2">
+            <h3 class="text-black">José Arellano</h3>
+            <p class="position">Mobile Developer</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto
+              tempora, adipisci at provident.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="about text-center">
+          <%= image_tag("landing/avatars/vladimir-jaco.png", alt: "Vladimir Jaco", class: "img-fluid w-50 rounded-circle mx-auto mb-4") %>
+          <div class="py-2">
+            <h3 class="text-black">Vladimir Jaco</h3>
+            <p class="position">Analista de Sistemas</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto
+              tempora, adipisci at provident.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="about text-center">
+          <%= image_tag("landing/avatars/alonso-vento.png", alt: "Alonso Vento", class: "img-fluid w-50 rounded-circle mx-auto mb-4") %>
+          <div class="py-2">
+            <h3 class="text-black">Alonso Vento</h3>
+            <p class="position">Analista de Operaciones</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto
+              tempora, adipisci at provident.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="about text-center">
+          <%= image_tag("landing/avatars/jose-sanchez.png", alt: "José Sánchez", class: "img-fluid w-50 rounded-circle mx-auto mb-4") %>
+          <div class="py-2">
+            <h3 class="text-black">José Sánchez</h3>
+            <p class="position">Analista de Canales Electrónicos</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto
+              tempora, adipisci at provident.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="about text-center">
+          <%= image_tag("landing/avatars/juan-cahuana.png", alt: "Juan Cahuana", class: "img-fluid w-50 rounded-circle mx-auto mb-4") %>
+          <div class="py-2">
+            <h3 class="text-black">Juan Cahuana</h3>
+            <p class="position">Web UI Developer</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro eius suscipit delectus enim iusto
+              tempora, adipisci at provident.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section bg-light" id="contact-section">
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+
+
+
+        <h2 class="section-title mb-3">Contacto</h2>
+        <p class="mb-5">Si deseas probar la herramienta o tienes alguna duda, escríbenos. Te responderemos en 48
+          horas y si podemos lo haremos antes, gracias.</p>
+
+        <form method="post" data-aos="fade">
+          <div class="form-group row">
+            <div class="col-md-6 mb-3 mb-lg-0">
+              <input type="text" class="form-control" placeholder="Nombres">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Apellidos">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <input type="text" class="form-control" placeholder="Asunto">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <input type="email" class="form-control" placeholder="Correo">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <textarea class="form-control" id="" cols="30" rows="10"
+                placeholder="Escribe tu mensaje aquí."></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6">
+
+              <input type="submit" class="btn btn-primary py-3 px-5 btn-block btn-pill" value="Enviar mensaje">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
