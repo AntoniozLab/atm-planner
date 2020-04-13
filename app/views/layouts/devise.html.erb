@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html>
+  <html>
 
-<head>
-  <title>Bienvenido</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>Bienvenido</title>
+    <link rel="shortcut icon" href="<%= asset_path('favicons/favicon.png') %>">
+    <link rel="icon" sizes="192x192" href="<%= asset_path('favicons/favicon.png') %>">
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <!-- <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %> -->
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-<body class="bg-gradient-info">
-  <!-- Layout para la zona de loguin, recuperar contraseña y registro (público, menos página de bienvenida) -->
-  <%= render partial: 'layouts/messages' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <%= yield %>
-</body>
+  <body class="bg-gray-700">
+    <!-- Layout para la zona de loguin, recuperar contraseña y registro (público, menos página de bienvenida) -->
+    <%= render partial: 'layouts/auth_messages' %>
+    <%= render partial: 'layouts/devise/header' %>
+
+    <%= yield %>
+  </body>
 
 </html>
