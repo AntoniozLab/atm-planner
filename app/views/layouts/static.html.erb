@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Bienvenido | ATM Request Planner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link rel="shortcut icon" href="<%= asset_path('favicons/favicon.png') %>">
+  <link rel="icon" sizes="192x192" href="<%= asset_path('favicons/favicon.png') %>">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+
+  <%= stylesheet_link_tag 'static', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'static', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="js-menu-toggle">
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+          <div class="site-logo mr-auto w-25">
+            <a href="index.html">
+              <%= image_tag("landing/logo-white.png", alt: "ATM Request Planner", class: "white") %>
+              <%= image_tag("landing/logo-blue.png", alt: "ATM Request Planner", class: "blue") %>
+            </a>
+          </div>
+
+          <div class="mx-auto text-center">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                <li><a href="#home-section" class="nav-link">Inicio</a></li>
+                <li><a href="#features-section" class="nav-link">Características</a></li>
+                <li><a href="#about-section" class="nav-link">Nosotros</a></li>
+                <li><a href="#contact-section" class="nav-link">Contacto</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="ml-auto w-25">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                <li class="cta">
+                  <a href="users/sign_in" class="nav-link rounded-button">
+                  <span>
+                    Ingresar
+                    <i class="fas fa-arrow-alt-circle-right text-light" style="font-size: 0.9rem;"></i>
+                  </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right">
+              <i class="fas fa-bars"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+    <footer class="footer-section bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Acerca de nosotros</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro consectetur ut hic ipsum et veritatis
+              corrupti. Itaque eius soluta optio dolorum temporibus in, atque, quos fugit sunt sit quaerat dicta.</p>
+          </div>
+
+          <div class="col-md-3 ml-auto">
+            <h3>Enlaces</h3>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Incio</a></li>
+              <li><a href="#features-section">Características</a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Teachers</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Subscribirse</h3>
+            <p>Recibir novedades acerca de la herramienta y tips de gestión gratis :)</p>
+            <form action="#" class="footer-subscribe">
+              <div class="d-flex mb-5">
+                <input type="text" class="form-control rounded-0" placeholder="Email">
+                <input type="submit" class="btn btn-primary rounded-0" value="OK">
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | El diseño se ha basado
+                en un tema de <a href="https://colorlib.com" target="_blank">Colorlib <i class="fas fa-heart"></i></a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>
