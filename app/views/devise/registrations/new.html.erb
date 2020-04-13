@@ -1,29 +1,70 @@
-<h2>Sign up hola</h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %>
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <!-- Nested Row within Card Body -->
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Registrar una cuenta!</h1>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'user' }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <!-- <form class="user"> -->
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <%= f.text_field :name, autofocus: true, class: "form-control form-control-user", placeholder: "Nombres" %>
+                <!-- <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombres"> -->
+              </div>
+              <div class="col-sm-6">
+                <%= f.text_field :last_name, autofocus: true, class: "form-control form-control-user", placeholder: "Apellidos" %>
+                <!-- <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name"> -->
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-user", placeholder: "Correo electrónico" %>
+              <!-- <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address"> -->
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <% if @minimum_password_length %>
+                <!-- <p><em>(<%= @minimum_password_length %> characters minimum)</em></p> -->
+                <% end %>
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-user", placeholder: "Contraseña" %>
+                <!-- <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"> -->
+              </div>
+              <div class="col-sm-6">
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-user", placeholder: "Repetir contraseña" %>
+                <!-- <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password"> -->
+              </div>
+            </div>
+            <%= f.submit "Registrar", class: "btn btn-primary btn-user btn-block" %>
+            <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
+                  Register Account
+                </a> -->
+            <!--<a href="index.html" class="btn btn-google btn-user btn-block">
+                  <i class="fab fa-google fa-fw"></i> Register with Google
+                </a>
+                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                </a> -->
+            <!-- </form> -->
+            <% end %>
+            <hr>
+            <div class="text-center">
+              <a class="small" href="forgot-password.html">Olvidaste tu contraseña?</a>
+            </div>
+            <div class="text-center">
+              <%= link_to 'Iniciar sesión!', new_user_session_path, class: "small" %>
+              <!-- <a class="small" href="login.html">Already have an account? Login!</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-<div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
-</div>
-
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
-
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
-<% end %>
-
-<%= render "devise/shared/links" %>
