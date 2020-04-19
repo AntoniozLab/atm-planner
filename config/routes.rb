@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   get 'login/recuperacion_psw'
   get 'login/recuperacion_psw_nuevo_psw'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #get 'requirements/show', controller: :requirements_controller, action: :show, alias: 'lista_requerimientos'
+  get 'requirements/new', controller: :requirements_controller, action: :new, alias: 'nuevo_requerimiento'
+  #get 'requirements/edit', controller: :requirements_controller, action: :edit, alias: 'editar_requerimiento'
+  
 
 end
