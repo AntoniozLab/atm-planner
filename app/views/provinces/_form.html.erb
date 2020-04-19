@@ -1,0 +1,60 @@
+<div class="items">
+  <div class="block-33"></div> 
+  <div class="block-form">
+    <fieldset-standard>
+      <%= form_with(model: province, local: true, html: {class: 'admin' }) do |form| %>
+        <% if province.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(province.errors.count, "error") %> prohibited this province from being saved:</h2>
+
+            <ul>
+              <% province.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :name, "Nombre" %>  
+            </div>
+            <div class="block-100">
+              <%= form.text_field :name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :ubigeo %>  
+            </div>
+            <div class="block-100">
+              <%= form.text_field :ubigeo, { :class => "form-control" } %>  
+            </div>
+          </div>                
+        </div>
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :department_id, "Departamento" %>
+            </div>
+            <div class="block-100">
+              <%= form.select :department_id, Department.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>    
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Guardar", :class => "btn btn-primary" %>
+        </div>
+      <% end %>
+    </fieldset>
+  </div> 
+</div>
+
+
+

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :provinces
+  resources :departments
   resources :requirements
   resources :dashboard
   root 'home#index'

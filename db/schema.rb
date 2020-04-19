@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_155259) do
+ActiveRecord::Schema.define(version: 2020_04_19_005130) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.string "ubigeo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "ubigeo"
+    t.integer "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_provinces_on_department_id"
+  end
 
   create_table "requirements", force: :cascade do |t|
     t.string "title"
@@ -37,5 +53,6 @@ ActiveRecord::Schema.define(version: 2020_04_18_155259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "provinces", "departments"
   add_foreign_key "requirements", "users"
 end

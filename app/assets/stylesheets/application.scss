@@ -13,7 +13,5 @@
  * require_tree .
  *= require_self
  */
-// @import "bootstrap/scss/bootstrap";
-// @import "./node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css";
 @import "admin/index";
-// @import "devise/index";
+@import "base";
