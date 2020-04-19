@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requirements
   resources :dashboard
   root 'home#index'
   # get 'dashboard/index'
