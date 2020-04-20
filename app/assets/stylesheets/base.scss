@@ -1,3 +1,196 @@
-* {
-  font-family: 'Nunito', sans-serif;
+.items {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+}
+
+.block-form {
+    width: 30%;
+    padding: 5px;    
+}
+.block-100 {
+	width: 100%;
+}
+.block-50 {
+	width: 50%;
+}
+.block-50-center {
+	width: 50%;
+	text-align: center;
+}
+.block-25 {
+	width: 25%;
+}
+.block-33 {
+	width: 33.3%;
+}
+
+fieldset-standard {
+    display: block;
+    padding: 5px 10px;
+    border-style: double;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: #36b9cc;
+    margin-bottom: 10px;
+}
+fieldset-orange {
+    display: block;
+    padding: 5px 10px;
+    border-style: double;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: #ea5b0c;
+    margin-bottom: 10px;
+}
+
+.title {
+	color: #36b9cc;
+}
+
+.color_field {
+	border-color: #36b9cc !important;
+}
+
+
+.form-control-orange {
+    display: block;
+    width: 100%;
+    padding: 2px 5px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ea5b0c;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ea5b0c;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .form-control-orange::-ms-expand {
+        background-color: transparent;
+        border: 0;
+    }
+
+    .form-control-orange:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #ea5b0c;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(234, 91, 12, 0.25);
+    }
+
+    .form-control-orange::-webkit-input-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    .form-control-orange::-moz-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    .form-control-orange:-ms-input-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+    .form-control-orange:disabled, .form-control-orange[readonly] {
+        background-color: #e9ecef;
+        opacity: 1;
+    }
+
+
+select.form-control-orange:focus::-ms-value {
+    color: #495057;
+    background-color: #fff;
+}
+
+.form-control-orange-file,
+.form-control-orange-range {
+    display: block;
+    width: 100%;
+}
+
+.form-control-standard {
+    display: block;
+    width: 100%;
+    padding: 2px 5px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #36b9cc;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #36b9cc;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .form-control-standard::-ms-expand {
+        background-color: transparent;
+        border: 0;
+    }
+
+    .form-control-standard:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #36b9cc;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(54, 185, 204, 0.25);
+    }
+
+    .form-control-standard::-webkit-input-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    .form-control-standard::-moz-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    .form-control-standard:-ms-input-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+    .form-control-standard:disabled, .form-control-standard[readonly] {
+        background-color: #e9ecef;
+        opacity: 1;
+    }
+
+
+select.form-control-standard:focus::-ms-value {
+    color: #495057;
+    background-color: #fff;
+}
+
+.form-control-standard-file,
+.form-control-standard-range {
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .block-form {
+        width: 100%;
+    }
+}
+@media (min-width: 481px) and (max-width: 889px) {
+    .block-form {
+        width: 80%;
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1140px) {
+    .block-form {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1141px) {
+    .block-form {
+        width: 25%;
+    }
+
 }

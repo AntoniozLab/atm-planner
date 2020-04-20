@@ -1,21 +1,21 @@
-<h1 class="h4 mb-4 text-gray-800 font-weight-bold">Nuevo requerimiento</h1>
+<h1 class="h3 mb-4 text-gray-800 font-weight-bold">Provincia</h1>
 <div class="row">
   <div class="col-lg-10">
 
     <div class="card position-relative">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Detalle</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Nuevo</h6>
       </div>
       <div class="card-body">
         <div>
-          <%= render 'form', requirement: @requirement %>
+          <%= render 'form', province: @province %>
         </div>
 
         <!-- Links inferiores -->
         <hr />
         <ul class="nav small">
           <li class="nav-item">
-            <a href="<%= requirements_path %>" class="nav-link py-1 px-2">← Ver todos</a>
+            <a href="<%= provinces_path %>" class="nav-link py-1 px-2">← Ver todos</a>
           </li>
         </ul>
 
@@ -23,3 +23,4 @@
     </div>
   </div>
 </div>
+
