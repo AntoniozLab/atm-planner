@@ -7,7 +7,7 @@
 }
 
 .block-form {
-    width: 25%;
+    width: 30%;
     padding: 5px;    
 }
 .block-100 {
@@ -15,6 +15,10 @@
 }
 .block-50 {
 	width: 50%;
+}
+.block-50-center {
+	width: 50%;
+	text-align: center;
 }
 .block-25 {
 	width: 25%;
@@ -165,4 +169,28 @@ select.form-control-standard:focus::-ms-value {
 .form-control-standard-range {
     display: block;
     width: 100%;
+}
+
+@media (max-width: 480px) {
+    .block-form {
+        width: 100%;
+    }
+}
+@media (min-width: 481px) and (max-width: 889px) {
+    .block-form {
+        width: 80%;
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1140px) {
+    .block-form {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1141px) {
+    .block-form {
+        width: 25%;
+    }
+
 }

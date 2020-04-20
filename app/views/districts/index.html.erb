@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="title">Provincias</h1>
+<h1 class="title">Distritos</h1>
 
 <br>
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_province_path, { :class => "btn btn-success"} %></h6>
+    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_district_path, { :class => "btn btn-success"} %></h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -35,14 +35,15 @@
               </thead>
 
               <tbody>
-                <% @provinces.each do |province| %>
+                <% @districts.each do |district| %>
                   <tr>
-                    <td><%= province.name %></td>
-                    <td><%= province.ubigeo %></td>                    
-                    <td><%= Department.select(:name).where("id = " + province.department_id.to_s).collect(&:name)[0] %></td>
-                    <td><%= link_to 'Detalle', province %></td>
-                    <td><%= link_to 'Editar', edit_province_path(province) %></td>
-                    <td><%= link_to 'Eliminar', province, method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+                    <td><%= district.name %></td>
+                    <td><%= district.ubigeo %></td>             
+                    <td><%= Province.select(:name).where("id = " + district.province_id.to_s).collect(&:name)[0] %></td>
+                    <td><%= link_to 'Detalle', district %></td>
+                    <td><%= link_to 'Editar', edit_district_path(district) %></td>
+                    <td><%= link_to 'Eliminar', district, method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+
                   </tr>
                 <% end %>
               </tbody>
@@ -51,7 +52,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-5">
-            <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Registros: <%= @provinces.count %></div>
+            <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Registros: <%= @districts.count %></div>
           </div>          
         </div>
       </div>

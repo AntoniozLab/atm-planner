@@ -1,27 +1,53 @@
-<%= form_with(model: department, local: true) do |form| %>
-  <% if department.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>
+      <%= form_with(model: department, local: true, html: {class: 'admin' }) do |form| %>
+        <% if department.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
 
-      <ul>
-        <% department.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            <ul>
+              <% department.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :name, "Nombre" %>  
+            </div>
+            <div class="block-100">
+              <%= form.text_field :name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :ubigeo %>
-    <%= form.text_field :ubigeo %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :ubigeo %>  
+            </div>
+            <div class="block-100">
+              <%= form.text_field :ubigeo, { :class => "form-control" } %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="items">
+          <div class="block-50-center">
+            <%= form.submit "Guardar", :class => "btn btn-success" %>
+          </div>
+          <div class="block-50-center" >
+              <%= link_to 'Atras', departments_path, :class => "btn btn-info" %>
+          </div>
+        </div>        
+      <% end %>
+    </fieldset>
+  </div> 
+</div>
+
+
+

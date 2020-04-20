@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :districts
   resources :provinces
   resources :departments
   resources :requirements
