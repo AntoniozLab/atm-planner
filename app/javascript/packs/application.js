@@ -8,7 +8,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
+var $ = require("jquery")
 require("jquery.easing");
 require("bootstrap")
 
@@ -22,6 +22,11 @@ window.$ = $;
 
 // Archivos personalizados para las páginas internas del dahsboard
 require('custom/sb-admin-2');
+require('custom/requirements');
+// require('vendor/datatables/jquery.dataTables.min');
+// require('datatables.net-bs4')($);
+
+
 // require('custom/demo/chart-area-demo');
 // require('custom/demo/chart-pie-demo');
 // require('custom/demo/chart-bar-demo');
