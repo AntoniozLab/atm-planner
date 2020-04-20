@@ -10098,6 +10098,9 @@ a:focus {
   display: block;
 }
 
+.sidebar .nav-item .nav-link {
+  font-weight: 600;
+}
 .sidebar .nav-item.active .nav-link {
   font-weight: 700;
 }
@@ -10262,7 +10265,7 @@ a:focus {
     width: 14rem;
   }
   .sidebar .nav-item .nav-link i {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin-right: 0.25rem;
   }
   .sidebar .nav-item .nav-link span {

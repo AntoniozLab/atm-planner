@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :departments
   resources :requirements
   resources :dashboard
+  resources :employees
   root 'home#index'
   # get 'dashboard/index'
   devise_for :users

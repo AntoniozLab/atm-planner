@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 2020_04_19_224210) do
     t.index ["department_id"], name: "index_provinces_on_department_id"
   end
 
+  create_table "employees", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "requirements", force: :cascade do |t|
     t.string "title"
     t.datetime "request_date"
