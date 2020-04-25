@@ -5,6 +5,7 @@ class RequirementsController < ApplicationController
   # GET /requirements.json
   def index
     @requirements = Requirement.all
+    # @users = User.find(params[:id])
   end
 
   # GET /requirements/1

@@ -55,6 +55,31 @@ ActiveRecord::Schema.define(version: 2020_04_25_054015) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.string "ubigeo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.string "ubigeo"
+    t.integer "province_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["province_id"], name: "index_districts_on_province_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "ubigeo"
+    t.integer "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_provinces_on_department_id"
+  end
+
   create_table "requirements", force: :cascade do |t|
     t.string "title"
     t.datetime "request_date"
@@ -84,5 +109,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_054015) do
   add_foreign_key "atm_models", "ATMs"
   add_foreign_key "atm_states", "ATMs"
   add_foreign_key "atm_types", "ATMs"
+  add_foreign_key "districts", "provinces"
+  add_foreign_key "provinces", "departments"
   add_foreign_key "requirements", "users"
 end

@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :atm_states
   resources :atm_types
   resources :atms
+  resources :districts
+  resources :provinces
+  resources :departments
   resources :requirements
   resources :dashboard
+  resources :employees
   root 'home#index'
   # get 'dashboard/index'
   devise_for :users
@@ -24,6 +28,6 @@ Rails.application.routes.draw do
   #get 'requirements/show', controller: :requirements_controller, action: :show, alias: 'lista_requerimientos'
   get 'requirements/new', controller: :requirements_controller, action: :new, alias: 'nuevo_requerimiento'
   #get 'requirements/edit', controller: :requirements_controller, action: :edit, alias: 'editar_requerimiento'
-  
+
 
 end
