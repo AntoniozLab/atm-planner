@@ -17,7 +17,7 @@ class AtmModelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create atm_model" do
     assert_difference('AtmModel.count') do
-      post atm_models_url, params: { atm_model: { ATM_id: @atm_model.ATM_id, description: @atm_model.description, name: @atm_model.name } }
+      post atm_models_url, params: { atm_model: { atm_brand_id: @atm_model.atm_brand_id, description: @atm_model.description, name: @atm_model.name } }
     end
 
     assert_redirected_to atm_model_url(AtmModel.last)
@@ -34,7 +34,7 @@ class AtmModelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update atm_model" do
-    patch atm_model_url(@atm_model), params: { atm_model: { ATM_id: @atm_model.ATM_id, description: @atm_model.description, name: @atm_model.name } }
+    patch atm_model_url(@atm_model), params: { atm_model: { atm_brand_id: @atm_model.atm_brand_id, description: @atm_model.description, name: @atm_model.name } }
     assert_redirected_to atm_model_url(@atm_model)
   end
 

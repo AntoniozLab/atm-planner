@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  description: MyText
-  ATM: one
+  description: MyString
 
 two:
   name: MyString
-  description: MyText
-  ATM: two
+  description: MyString

@@ -17,7 +17,7 @@ class AtmStatesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create atm_state" do
     assert_difference('AtmState.count') do
-      post atm_states_url, params: { atm_state: { ATM_id: @atm_state.ATM_id, name: @atm_state.name } }
+      post atm_states_url, params: { atm_state: { name: @atm_state.name } }
     end
 
     assert_redirected_to atm_state_url(AtmState.last)
@@ -34,7 +34,7 @@ class AtmStatesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update atm_state" do
-    patch atm_state_url(@atm_state), params: { atm_state: { ATM_id: @atm_state.ATM_id, name: @atm_state.name } }
+    patch atm_state_url(@atm_state), params: { atm_state: { name: @atm_state.name } }
     assert_redirected_to atm_state_url(@atm_state)
   end
 

@@ -14,7 +14,6 @@ class AtmStatesTest < ApplicationSystemTestCase
     visit atm_states_url
     click_on "New Atm State"
 
-    fill_in "Atm", with: @atm_state.ATM_id
     fill_in "Name", with: @atm_state.name
     click_on "Create Atm state"
 
@@ -26,7 +25,6 @@ class AtmStatesTest < ApplicationSystemTestCase
     visit atm_states_url
     click_on "Edit", match: :first
 
-    fill_in "Atm", with: @atm_state.ATM_id
     fill_in "Name", with: @atm_state.name
     click_on "Update Atm state"
 

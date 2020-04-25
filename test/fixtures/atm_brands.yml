@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  description: MyText
-  atm_models: one
+  description: MyString
 
 two:
   name: MyString
-  description: MyText
-  atm_models: two
+  description: MyString

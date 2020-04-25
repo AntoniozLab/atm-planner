@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  ATM: one
 
 two:
   name: MyString
-  ATM: two

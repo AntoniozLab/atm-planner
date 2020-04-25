@@ -69,6 +69,6 @@ class AtmTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def atm_type_params
-      params.require(:atm_type).permit(:name, :description, :ATM_id)
+      params.require(:atm_type).permit(:name, :description)
     end
 end

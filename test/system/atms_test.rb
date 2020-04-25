@@ -14,8 +14,11 @@ class AtmsTest < ApplicationSystemTestCase
     visit atms_url
     click_on "New Atm"
 
+    fill_in "Atm model", with: @atm.atm_model_id
+    fill_in "Atm state", with: @atm.atm_state_id
+    fill_in "Atm type", with: @atm.atm_type_id
     fill_in "Description", with: @atm.description
-    fill_in "Manufacturing date", with: @atm.manufacturing_date
+    fill_in "Manufactoring date", with: @atm.manufactoring_date
     fill_in "Serial number", with: @atm.serial_number
     click_on "Create Atm"
 
@@ -27,8 +30,11 @@ class AtmsTest < ApplicationSystemTestCase
     visit atms_url
     click_on "Edit", match: :first
 
+    fill_in "Atm model", with: @atm.atm_model_id
+    fill_in "Atm state", with: @atm.atm_state_id
+    fill_in "Atm type", with: @atm.atm_type_id
     fill_in "Description", with: @atm.description
-    fill_in "Manufacturing date", with: @atm.manufacturing_date
+    fill_in "Manufactoring date", with: @atm.manufactoring_date
     fill_in "Serial number", with: @atm.serial_number
     click_on "Update Atm"
 

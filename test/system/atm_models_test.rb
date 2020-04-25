@@ -14,7 +14,7 @@ class AtmModelsTest < ApplicationSystemTestCase
     visit atm_models_url
     click_on "New Atm Model"
 
-    fill_in "Atm", with: @atm_model.ATM_id
+    fill_in "Atm brand", with: @atm_model.atm_brand_id
     fill_in "Description", with: @atm_model.description
     fill_in "Name", with: @atm_model.name
     click_on "Create Atm model"
@@ -27,7 +27,7 @@ class AtmModelsTest < ApplicationSystemTestCase
     visit atm_models_url
     click_on "Edit", match: :first
 
-    fill_in "Atm", with: @atm_model.ATM_id
+    fill_in "Atm brand", with: @atm_model.atm_brand_id
     fill_in "Description", with: @atm_model.description
     fill_in "Name", with: @atm_model.name
     click_on "Update Atm model"

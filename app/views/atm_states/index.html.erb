@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Atm</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
     <% @atm_states.each do |atm_state| %>
       <tr>
         <td><%= atm_state.name %></td>
-        <td><%= atm_state.ATM_id %></td>
         <td><%= link_to 'Show', atm_state %></td>
         <td><%= link_to 'Edit', edit_atm_state_path(atm_state) %></td>
         <td><%= link_to 'Destroy', atm_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>

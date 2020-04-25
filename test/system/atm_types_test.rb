@@ -14,7 +14,6 @@ class AtmTypesTest < ApplicationSystemTestCase
     visit atm_types_url
     click_on "New Atm Type"
 
-    fill_in "Atm", with: @atm_type.ATM_id
     fill_in "Description", with: @atm_type.description
     fill_in "Name", with: @atm_type.name
     click_on "Create Atm type"
@@ -27,7 +26,6 @@ class AtmTypesTest < ApplicationSystemTestCase
     visit atm_types_url
     click_on "Edit", match: :first
 
-    fill_in "Atm", with: @atm_type.ATM_id
     fill_in "Description", with: @atm_type.description
     fill_in "Name", with: @atm_type.name
     click_on "Update Atm type"

@@ -3,9 +3,15 @@
 one:
   serial_number: MyString
   description: MyString
-  manufacturing_date: 2020-04-25
+  manufactoring_date: 2020-04-25
+  atm_model: one
+  atm_type: one
+  atm_state: one
 
 two:
   serial_number: MyString
   description: MyString
-  manufacturing_date: 2020-04-25
+  manufactoring_date: 2020-04-25
+  atm_model: two
+  atm_type: two
+  atm_state: two
