@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :atm_brands
+  resources :atm_models
+  resources :atm_states
+  resources :atm_types
+  resources :atms
   resources :requirements
   resources :dashboard
   root 'home#index'

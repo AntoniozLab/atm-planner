@@ -10,7 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_155259) do
+ActiveRecord::Schema.define(version: 2020_04_25_054015) do
+
+  create_table "atm_brands", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "atm_models_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["atm_models_id"], name: "index_atm_brands_on_atm_models_id"
+  end
+
+  create_table "atm_models", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "ATM_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ATM_id"], name: "index_atm_models_on_ATM_id"
+  end
+
+  create_table "atm_states", force: :cascade do |t|
+    t.string "name"
+    t.integer "ATM_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ATM_id"], name: "index_atm_states_on_ATM_id"
+  end
+
+  create_table "atm_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "ATM_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ATM_id"], name: "index_atm_types_on_ATM_id"
+  end
+
+  create_table "atms", force: :cascade do |t|
+    t.string "serial_number"
+    t.string "description"
+    t.date "manufacturing_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "requirements", force: :cascade do |t|
     t.string "title"
@@ -37,5 +80,9 @@ ActiveRecord::Schema.define(version: 2020_04_18_155259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "atm_brands", "atm_models", column: "atm_models_id"
+  add_foreign_key "atm_models", "ATMs"
+  add_foreign_key "atm_states", "ATMs"
+  add_foreign_key "atm_types", "ATMs"
   add_foreign_key "requirements", "users"
 end

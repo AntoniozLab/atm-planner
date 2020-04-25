@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atm Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Atm</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atm_types.each do |atm_type| %>
+      <tr>
+        <td><%= atm_type.name %></td>
+        <td><%= atm_type.description %></td>
+        <td><%= atm_type.ATM_id %></td>
+        <td><%= link_to 'Show', atm_type %></td>
+        <td><%= link_to 'Edit', edit_atm_type_path(atm_type) %></td>
+        <td><%= link_to 'Destroy', atm_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Atm Type', new_atm_type_path %>
