@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 2020_04_25_135831) do
     t.index ["location_type_id"], name: "index_locations_on_location_type_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "description"
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.string "ubigeo"
@@ -153,7 +159,9 @@ ActiveRecord::Schema.define(version: 2020_04_25_135831) do
     t.string "name"
     t.string "last_name"
     t.boolean "admin", default: false
+    t.integer "profile_id", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -170,4 +178,5 @@ ActiveRecord::Schema.define(version: 2020_04_25_135831) do
   add_foreign_key "requirements", "locations"
   add_foreign_key "requirements", "requirement_states"
   add_foreign_key "requirements", "users"
+  add_foreign_key "users", "profiles"
 end
