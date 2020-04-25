@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_032914) do
+ActiveRecord::Schema.define(version: 2020_04_25_135831) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,49 @@ ActiveRecord::Schema.define(version: 2020_04_20_032914) do
     t.index ["province_id"], name: "index_districts_on_province_id"
   end
 
+  create_table "location_contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.string "position_name"
+    t.integer "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_location_contacts_on_location_id"
+  end
+
+  create_table "location_owners", force: :cascade do |t|
+    t.string "name"
+    t.string "business_name"
+    t.string "document_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "location_types", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "reference_code"
+    t.string "name"
+    t.string "address"
+    t.string "address_reference"
+    t.string "active_state"
+    t.integer "location_type_id", null: false
+    t.integer "location_owner_id", null: false
+    t.integer "district_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["district_id"], name: "index_locations_on_district_id"
+    t.index ["location_owner_id"], name: "index_locations_on_location_owner_id"
+    t.index ["location_type_id"], name: "index_locations_on_location_type_id"
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.string "ubigeo"
@@ -37,12 +80,64 @@ ActiveRecord::Schema.define(version: 2020_04_20_032914) do
     t.index ["department_id"], name: "index_provinces_on_department_id"
   end
 
-  create_table "requirements", force: :cascade do |t|
-    t.string "title"
-    t.datetime "request_date"
-    t.integer "user_id", null: false
+  create_table "requirement_detail_reasons", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "requirement_detail_states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "requirement_details", force: :cascade do |t|
+    t.string "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "cancel_observation"
+    t.integer "atm_new"
+    t.integer "atm_old"
+    t.integer "requirement_id", null: false
+    t.integer "requirement_type_id", null: false
+    t.integer "requirement_detail_state_id", null: false
+    t.integer "requirement_detail_reason_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requirement_detail_reason_id"], name: "index_requirement_details_on_requirement_detail_reason_id"
+    t.index ["requirement_detail_state_id"], name: "index_requirement_details_on_requirement_detail_state_id"
+    t.index ["requirement_id"], name: "index_requirement_details_on_requirement_id"
+    t.index ["requirement_type_id"], name: "index_requirement_details_on_requirement_type_id"
+  end
+
+  create_table "requirement_states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "requirement_types", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "requirements", force: :cascade do |t|
+    t.string "description"
+    t.date "request_date"
+    t.date "completion_date"
+    t.decimal "percentage_success"
+    t.integer "user_assigned"
+    t.string "attachment_url"
+    t.integer "user_id", null: false
+    t.integer "requirement_state_id", null: false
+    t.integer "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_requirements_on_location_id"
+    t.index ["requirement_state_id"], name: "index_requirements_on_requirement_state_id"
     t.index ["user_id"], name: "index_requirements_on_user_id"
   end
 
@@ -63,6 +158,16 @@ ActiveRecord::Schema.define(version: 2020_04_20_032914) do
   end
 
   add_foreign_key "districts", "provinces"
+  add_foreign_key "location_contacts", "locations"
+  add_foreign_key "locations", "districts"
+  add_foreign_key "locations", "location_owners"
+  add_foreign_key "locations", "location_types"
   add_foreign_key "provinces", "departments"
+  add_foreign_key "requirement_details", "requirement_detail_reasons"
+  add_foreign_key "requirement_details", "requirement_detail_states"
+  add_foreign_key "requirement_details", "requirement_types"
+  add_foreign_key "requirement_details", "requirements"
+  add_foreign_key "requirements", "locations"
+  add_foreign_key "requirements", "requirement_states"
   add_foreign_key "requirements", "users"
 end
