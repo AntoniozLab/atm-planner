@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Requirement Detail States</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requirement_detail_states.each do |requirement_detail_state| %>
+      <tr>
+        <td><%= requirement_detail_state.name %></td>
+        <td><%= link_to 'Show', requirement_detail_state %></td>
+        <td><%= link_to 'Edit', edit_requirement_detail_state_path(requirement_detail_state) %></td>
+        <td><%= link_to 'Destroy', requirement_detail_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requirement Detail State', new_requirement_detail_state_path %>

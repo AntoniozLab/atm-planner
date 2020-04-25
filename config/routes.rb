@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
+  resources :requirement_details
+  resources :requirement_detail_reasons
+  resources :requirement_detail_states
+  resources :requirement_types
+  resources :requirement_states
+  resources :locations
+  resources :requirements
+  resources :location_contacts
+  # resources :locations
+  resources :location_owners
+  resources :location_types
   resources :districts
   resources :provinces
   resources :departments
-  resources :requirements
   resources :dashboard
   resources :employees
   root 'home#index'

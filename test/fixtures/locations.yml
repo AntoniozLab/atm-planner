@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_code: MyString
+  name: MyString
+  address: MyString
+  address_reference: MyString
+  active_state: MyString
+  location_type: one
+  location_owner: one
+  district: one
+
+two:
+  reference_code: MyString
+  name: MyString
+  address: MyString
+  address_reference: MyString
+  active_state: MyString
+  location_type: two
+  location_owner: two
+  district: two

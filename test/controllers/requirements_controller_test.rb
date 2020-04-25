@@ -17,7 +17,7 @@ class RequirementsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create requirement" do
     assert_difference('Requirement.count') do
-      post requirements_url, params: { requirement: { request_date: @requirement.request_date, title: @requirement.title, user_id: @requirement.user_id } }
+      post requirements_url, params: { requirement: { attachment_url: @requirement.attachment_url, completion_date: @requirement.completion_date, description: @requirement.description, location_id: @requirement.location_id, percentage_success: @requirement.percentage_success, request_date: @requirement.request_date, requirement_state_id: @requirement.requirement_state_id, user_assigned: @requirement.user_assigned, user_id: @requirement.user_id } }
     end
 
     assert_redirected_to requirement_url(Requirement.last)
@@ -34,7 +34,7 @@ class RequirementsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update requirement" do
-    patch requirement_url(@requirement), params: { requirement: { request_date: @requirement.request_date, title: @requirement.title, user_id: @requirement.user_id } }
+    patch requirement_url(@requirement), params: { requirement: { attachment_url: @requirement.attachment_url, completion_date: @requirement.completion_date, description: @requirement.description, location_id: @requirement.location_id, percentage_success: @requirement.percentage_success, request_date: @requirement.request_date, requirement_state_id: @requirement.requirement_state_id, user_assigned: @requirement.user_assigned, user_id: @requirement.user_id } }
     assert_redirected_to requirement_url(@requirement)
   end
 

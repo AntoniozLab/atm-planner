@@ -1,0 +1,2 @@
+class LocationOwner < ApplicationRecord
+end
