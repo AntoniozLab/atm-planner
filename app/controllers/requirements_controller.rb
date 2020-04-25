@@ -1,11 +1,13 @@
 class RequirementsController < ApplicationController
+  # Verifica si esta logueado
+  before_action :authenticate_user!
+
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
   # GET /requirements
   # GET /requirements.json
   def index
     @requirements = Requirement.all
-    # @users = User.find(params[:id])
   end
 
   # GET /requirements/1
@@ -70,6 +72,6 @@ class RequirementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def requirement_params
-      params.require(:requirement).permit(:title, :request_date, :user_id)
+      params.require(:requirement).permit(:description, :request_date, :completion_date, :percentage_success, :user_assigned, :attachment_url, :user_id, :requirement_state_id, :location_id)
     end
 end

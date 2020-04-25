@@ -14,8 +14,14 @@ class RequirementsTest < ApplicationSystemTestCase
     visit requirements_url
     click_on "New Requirement"
 
+    fill_in "Attachment url", with: @requirement.attachment_url
+    fill_in "Completion date", with: @requirement.completion_date
+    fill_in "Description", with: @requirement.description
+    fill_in "Location", with: @requirement.location_id
+    fill_in "Percentage success", with: @requirement.percentage_success
     fill_in "Request date", with: @requirement.request_date
-    fill_in "Title", with: @requirement.title
+    fill_in "Requirement state", with: @requirement.requirement_state_id
+    fill_in "User assigned", with: @requirement.user_assigned
     fill_in "User", with: @requirement.user_id
     click_on "Create Requirement"
 
@@ -27,8 +33,14 @@ class RequirementsTest < ApplicationSystemTestCase
     visit requirements_url
     click_on "Edit", match: :first
 
+    fill_in "Attachment url", with: @requirement.attachment_url
+    fill_in "Completion date", with: @requirement.completion_date
+    fill_in "Description", with: @requirement.description
+    fill_in "Location", with: @requirement.location_id
+    fill_in "Percentage success", with: @requirement.percentage_success
     fill_in "Request date", with: @requirement.request_date
-    fill_in "Title", with: @requirement.title
+    fill_in "Requirement state", with: @requirement.requirement_state_id
+    fill_in "User assigned", with: @requirement.user_assigned
     fill_in "User", with: @requirement.user_id
     click_on "Update Requirement"
 
