@@ -1,2 +1,0 @@
-class RequirementState < ApplicationRecord
-end
