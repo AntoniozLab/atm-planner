@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @atm_model.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @atm_model.description %>
+</p>
+
+<p>
+  <strong>Atm brand:</strong>
+  <%= @atm_model.atm_brand_id %>
+</p>
+
+<%= link_to 'Edit', edit_atm_model_path(@atm_model) %> |
+<%= link_to 'Back', atm_models_path %>

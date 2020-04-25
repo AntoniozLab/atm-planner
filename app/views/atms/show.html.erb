@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @atm.serial_number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @atm.description %>
+</p>
+
+<p>
+  <strong>Manufactoring date:</strong>
+  <%= @atm.manufactoring_date %>
+</p>
+
+<p>
+  <strong>Atm model:</strong>
+  <%= @atm.atm_model_id %>
+</p>
+
+<p>
+  <strong>Atm type:</strong>
+  <%= @atm.atm_type_id %>
+</p>
+
+<p>
+  <strong>Atm state:</strong>
+  <%= @atm.atm_state_id %>
+</p>
+
+<%= link_to 'Edit', edit_atm_path(@atm) %> |
+<%= link_to 'Back', atms_path %>

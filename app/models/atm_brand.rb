@@ -1,0 +1,2 @@
+class AtmBrand < ApplicationRecord
+end

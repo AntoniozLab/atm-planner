@@ -1,0 +1,2 @@
+class AtmState < ApplicationRecord
+end

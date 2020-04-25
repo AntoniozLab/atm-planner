@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @atm_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @atm_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_atm_type_path(@atm_type) %> |
+<%= link_to 'Back', atm_types_path %>

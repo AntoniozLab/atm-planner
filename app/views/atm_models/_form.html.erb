@@ -1,0 +1,32 @@
+<%= form_with(model: atm_model, local: true) do |form| %>
+  <% if atm_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(atm_model.errors.count, "error") %> prohibited this atm_model from being saved:</h2>
+
+      <ul>
+        <% atm_model.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :atm_brand_id %>
+    <%= form.text_field :atm_brand_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
