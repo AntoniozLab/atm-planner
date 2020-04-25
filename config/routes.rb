@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :provinces
   resources :departments
   resources :dashboard
-  resources :employees
   root 'home#index'
   # get 'dashboard/index'
   devise_for :users
