@@ -1,0 +1,32 @@
+<%= form_with(model: location_owner, local: true) do |form| %>
+  <% if location_owner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(location_owner.errors.count, "error") %> prohibited this location_owner from being saved:</h2>
+
+      <ul>
+        <% location_owner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_name %>
+    <%= form.text_field :business_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_number %>
+    <%= form.text_field :document_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
