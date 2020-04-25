@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @requirement_detail.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @requirement_detail.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @requirement_detail.end_date %>
+</p>
+
+<p>
+  <strong>Cancel observation:</strong>
+  <%= @requirement_detail.cancel_observation %>
+</p>
+
+<p>
+  <strong>Atm new:</strong>
+  <%= @requirement_detail.atm_new %>
+</p>
+
+<p>
+  <strong>Atm old:</strong>
+  <%= @requirement_detail.atm_old %>
+</p>
+
+<p>
+  <strong>Requirement:</strong>
+  <%= @requirement_detail.requirement_id %>
+</p>
+
+<p>
+  <strong>Requirement type:</strong>
+  <%= @requirement_detail.requirement_type_id %>
+</p>
+
+<p>
+  <strong>Requirement detail state:</strong>
+  <%= @requirement_detail.requirement_detail_state_id %>
+</p>
+
+<p>
+  <strong>Requirement detail reason:</strong>
+  <%= @requirement_detail.requirement_detail_reason_id %>
+</p>
+
+<%= link_to 'Edit', edit_requirement_detail_path(@requirement_detail) %> |
+<%= link_to 'Back', requirement_details_path %>

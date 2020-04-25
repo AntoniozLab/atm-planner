@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Requirement Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Cancel observation</th>
+      <th>Atm new</th>
+      <th>Atm old</th>
+      <th>Requirement</th>
+      <th>Requirement type</th>
+      <th>Requirement detail state</th>
+      <th>Requirement detail reason</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requirement_details.each do |requirement_detail| %>
+      <tr>
+        <td><%= requirement_detail.description %></td>
+        <td><%= requirement_detail.start_date %></td>
+        <td><%= requirement_detail.end_date %></td>
+        <td><%= requirement_detail.cancel_observation %></td>
+        <td><%= requirement_detail.atm_new %></td>
+        <td><%= requirement_detail.atm_old %></td>
+        <td><%= requirement_detail.requirement_id %></td>
+        <td><%= requirement_detail.requirement_type_id %></td>
+        <td><%= requirement_detail.requirement_detail_state_id %></td>
+        <td><%= requirement_detail.requirement_detail_reason_id %></td>
+        <td><%= link_to 'Show', requirement_detail %></td>
+        <td><%= link_to 'Edit', edit_requirement_detail_path(requirement_detail) %></td>
+        <td><%= link_to 'Destroy', requirement_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requirement Detail', new_requirement_detail_path %>

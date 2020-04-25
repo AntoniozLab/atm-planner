@@ -4,10 +4,20 @@ Rails.application.routes.draw do
   resources :atm_states
   resources :atm_types
   resources :atms
+  resources :requirement_details
+  resources :requirement_detail_reasons
+  resources :requirement_detail_states
+  resources :requirement_types
+  resources :requirement_states
+  resources :locations
+  resources :requirements
+  resources :location_contacts
+  # resources :locations
+  resources :location_owners
+  resources :location_types
   resources :districts
   resources :provinces
   resources :departments
-  resources :requirements
   resources :dashboard
   resources :employees
   root 'home#index'
@@ -25,9 +35,5 @@ Rails.application.routes.draw do
   get 'login/recuperacion_psw'
   get 'login/recuperacion_psw_nuevo_psw'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  #get 'requirements/show', controller: :requirements_controller, action: :show, alias: 'lista_requerimientos'
-  get 'requirements/new', controller: :requirements_controller, action: :new, alias: 'nuevo_requerimiento'
-  #get 'requirements/edit', controller: :requirements_controller, action: :edit, alias: 'editar_requerimiento'
-
 
 end

@@ -1,0 +1,2 @@
+class RequirementType < ApplicationRecord
+end
