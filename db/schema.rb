@@ -10,49 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_054015) do
+ActiveRecord::Schema.define(version: 2020_04_25_155955) do
 
   create_table "atm_brands", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.integer "atm_models_id", null: false
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["atm_models_id"], name: "index_atm_brands_on_atm_models_id"
   end
 
   create_table "atm_models", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.integer "ATM_id", null: false
+    t.string "description"
+    t.integer "atm_brand_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ATM_id"], name: "index_atm_models_on_ATM_id"
+    t.index ["atm_brand_id"], name: "index_atm_models_on_atm_brand_id"
   end
 
   create_table "atm_states", force: :cascade do |t|
     t.string "name"
-    t.integer "ATM_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ATM_id"], name: "index_atm_states_on_ATM_id"
   end
 
   create_table "atm_types", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.integer "ATM_id", null: false
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ATM_id"], name: "index_atm_types_on_ATM_id"
   end
 
   create_table "atms", force: :cascade do |t|
     t.string "serial_number"
     t.string "description"
-    t.date "manufacturing_date"
+    t.date "manufactoring_date"
+    t.integer "atm_model_id", null: false
+    t.integer "atm_type_id", null: false
+    t.integer "atm_state_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["atm_model_id"], name: "index_atms_on_atm_model_id"
+    t.index ["atm_state_id"], name: "index_atms_on_atm_state_id"
+    t.index ["atm_type_id"], name: "index_atms_on_atm_type_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -208,10 +208,10 @@ ActiveRecord::Schema.define(version: 2020_04_25_054015) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "atm_brands", "atm_models", column: "atm_models_id"
-  add_foreign_key "atm_models", "ATMs"
-  add_foreign_key "atm_states", "ATMs"
-  add_foreign_key "atm_types", "ATMs"
+  add_foreign_key "atm_models", "atm_brands"
+  add_foreign_key "atms", "atm_models"
+  add_foreign_key "atms", "atm_states"
+  add_foreign_key "atms", "atm_types"
   add_foreign_key "districts", "provinces"
   add_foreign_key "location_contacts", "locations"
   add_foreign_key "locations", "districts"
