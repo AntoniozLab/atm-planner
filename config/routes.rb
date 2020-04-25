@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :atm_brands
-  resources :atm_models
-  resources :atm_states
-  resources :atm_types
   resources :atms
+  resources :atm_models
+  resources :atm_types
+  resources :atm_brands
+  resources :atm_states
   resources :requirement_details
   resources :requirement_detail_reasons
   resources :requirement_detail_states
