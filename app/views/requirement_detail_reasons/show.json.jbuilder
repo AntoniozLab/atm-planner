@@ -1,0 +1,1 @@
+json.partial! "requirement_detail_reasons/requirement_detail_reason", requirement_detail_reason: @requirement_detail_reason

@@ -1,0 +1,1 @@
+json.partial! "requirement_detail_states/requirement_detail_state", requirement_detail_state: @requirement_detail_state

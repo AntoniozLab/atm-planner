@@ -1,0 +1,67 @@
+<%= form_with(model: requirement_detail, local: true) do |form| %>
+  <% if requirement_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(requirement_detail.errors.count, "error") %> prohibited this requirement_detail from being saved:</h2>
+
+      <ul>
+        <% requirement_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancel_observation %>
+    <%= form.text_field :cancel_observation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :atm_new %>
+    <%= form.number_field :atm_new %>
+  </div>
+
+  <div class="field">
+    <%= form.label :atm_old %>
+    <%= form.number_field :atm_old %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requirement_id %>
+    <%= form.text_field :requirement_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requirement_type_id %>
+    <%= form.text_field :requirement_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requirement_detail_state_id %>
+    <%= form.text_field :requirement_detail_state_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requirement_detail_reason_id %>
+    <%= form.text_field :requirement_detail_reason_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
