@@ -1,57 +1,129 @@
-<%= form_with(model: location, local: true) do |form| %>
-  <% if location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>      
+      <%= form_with(model: location, local: true) do |form| %>
+        <% if location.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-      <ul>
-        <% location.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            <ul>
+              <% location.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :reference_code %>
-    <%= form.text_field :reference_code %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :name, "Nombre Locación"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :address, "Dirección"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :address, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100" >
+            <%= form.label "Razón Social"%>
+            </div>
+            <div class="block-100">              
+              <%= form.text_field :ruc_name, { :class => "form-control"} %>  
+            </div>
+          </div>    
+        </div>
 
-  <div class="field">
-    <%= form.label :address_reference %>
-    <%= form.text_field :address_reference %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+             <%= form.label :location_owner_id, "RUC" %>
+            <div class="block-100">
+              <%= form.text_field :location_owner_id, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :active_state %>
-    <%= form.text_field :active_state %>
-  </div>
+        <div class="field", style="display: none;">
+          <%= form.label :reference_code%>
+          <%= form.text_field :reference_code %>
+        </div>
 
-  <div class="field">
-    <%= form.label :location_type_id %>
-    <%= form.text_field :location_type_id %>
-  </div>
+        <div class="field", style="display: none;">
+          <%= form.label :address_reference %>
+          <%= form.text_field :address_reference %>
+        </div>
 
-  <div class="field">
-    <%= form.label :location_owner_id %>
-    <%= form.text_field :location_owner_id %>
-  </div>
+        <div class="field", style="display: none;">
+          <%= form.label :active_state %>
+          <%= form.text_field :active_state %>
+        </div>
 
-  <div class="field">
-    <%= form.label :district_id %>
-    <%= form.text_field :district_id %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+          <%= form.label "Departamento"%>
+            </div>
+            <div class="block-100">
+              <%= form.select :department_id, Department.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>    
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+          <%= form.label "Provincia"%>
+            </div>
+            <div class="block-100">
+              <%= form.select :province_id, Province.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>    
+        </div>
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+          <%= form.label :district_id, "Distrito"%>
+            </div>
+            <div class="block-100">
+              <%= form.select :district_id, District.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>   
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+          <%= form.label :location_type_id ,"Tipo Locación"%>
+            </div>
+            <div class="block-100">
+              <%= form.select :location_type_id, LocationType.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>    
+        </div>
+
+        <div class="items">
+          <div class="block-50-center">
+            <%= form.submit "Guardar", :class => "btn btn-success" %>
+          </div>       
+          <div class="block-50-center" >
+              <%= link_to 'Atras', locations_path, :class => "btn btn-info" %>
+          </div>
+        </div>
+      <% end %>
+    </fieldset>
+  </div> 
+</div>

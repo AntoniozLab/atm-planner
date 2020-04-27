@@ -53,3 +53,6 @@ yarn-debug.log*
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+Gemfile.lock
+Gemfile.lock
+Gemfile.lock
