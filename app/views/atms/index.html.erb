@@ -17,8 +17,6 @@
   </thead>
 
 
-
-
   <tbody>
     <% @atms.each do |atm| %>
     <tr>
@@ -26,8 +24,8 @@
       <td><%= atm.description %></td>
       <td><%= atm.manufactoring_date %></td>
       <td><%= atm.atm_model_id %></td>
-      <td><%= atm.atm_type_id %></td>
-      <td><%= atm.atm_state_id %></td>
+      <td><%= AtmType.select(:name).where("id = " + atm.atm_type_id.to_s).collect(&:name)[0] %></td>
+      <td><%= AtmState.select(:name).where("id = " + atm.atm_state_id.to_s).collect(&:name)[0] %></td>
       <td><%= link_to 'Mostrar', atm %></td>
       <td><%= link_to 'Editar', edit_atm_path(atm) %></td>
       <td><%= link_to 'Eliminar', atm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
