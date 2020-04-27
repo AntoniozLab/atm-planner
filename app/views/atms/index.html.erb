@@ -16,6 +16,9 @@
     </tr>
   </thead>
 
+
+
+
   <tbody>
     <% @atms.each do |atm| %>
     <tr>
@@ -34,6 +37,7 @@
 </table>
 
 <br>
+<hr>
 
 <div>
   <%= will_paginate @atm,renderer: BootstrapPagination::Rails %>

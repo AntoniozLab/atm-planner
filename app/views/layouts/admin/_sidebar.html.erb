@@ -121,6 +121,20 @@
     </div>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLocacion" aria-expanded="true"
+      aria-controls="collapseLocacion">
+      <i class="fas fa-fw fa-globe-americas"></i>
+      <span>Locación</span>
+    </a>
+    <div id="collapseLocacion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+        <a class="collapse-item" href="<%= new_location_path %>">Crear</a>
+        <a class="collapse-item" href="<%= locations_path %>">Buscar y Editar</a>
+      </div>
+    </div>
+  </li>
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUbigeo" aria-expanded="true"

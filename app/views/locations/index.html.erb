@@ -19,23 +19,32 @@
 
   <tbody>
     <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.reference_code %></td>
-        <td><%= location.name %></td>
-        <td><%= location.address %></td>
-        <td><%= location.address_reference %></td>
-        <td><%= location.active_state %></td>
-        <td><%= location.location_type_id %></td>
-        <td><%= location.location_owner_id %></td>
-        <td><%= location.district_id %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= location.reference_code %></td>
+      <td><%= location.name %></td>
+      <td><%= location.address %></td>
+      <td><%= location.address_reference %></td>
+      <td><%= location.active_state %></td>
+      <td><%= location.location_type_id %></td>
+      <td><%= location.location_owner_id %></td>
+      <td><%= location.district_id %></td>
+      <td><%= link_to 'Show', location %></td>
+      <td><%= link_to 'Edit', edit_location_path(location) %></td>
+      <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<hr>
 
-<%= link_to 'New Location', new_location_path %>
+<div>
+  <%= will_paginate @atm,renderer: BootstrapPagination::Rails %>
+  <div class="text.center"><%= page_entries_info %></div>
+
+</div>
+
+<hr>
+
+<%= link_to 'Nueva Locación', new_location_path %>
