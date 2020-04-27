@@ -41,9 +41,106 @@
     </div>
   </li>
 
+  <!-- Nav Item - Pages Collapse Menu -->
+  <%#   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccess" aria-expanded="true"
+      aria-controls="collapseAccess">
+      <i class="fas fa-fw fa-user-friends"></i>
+      <span>Accesos</span>
+    </a> %>
+
 
   <!-- Nav Item - Pages Collapse Menu -->
+
+
+  <!-- Divider -->
+  <%#   <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Datos
+  </div> %>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+
+
+
+  <hr class="sidebar-divider">
+
+  <div class="sidebar-heading">
+    Mantenimiento
+  </div>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+
   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClients" aria-expanded="true"
+      aria-controls="collapseClients">
+      <i class="fas fa-fw fa-user-friends"></i>
+      <span>Clientes</span>
+    </a>
+    <div id="collapseClients" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <!-- <h6 class="collapse-header">Usuarios</h6> -->
+        <a class="collapse-item" href="#">Crear cliente</a>
+        <a class="collapse-item" href="#">Crear locación</a>
+      </div>
+    </div>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
+      aria-controls="collapseUsers">
+      <i class="fas fa-fw fa-user-tie"></i>
+      <span>Usuarios</span>
+    </a>
+    <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Usuarios</h6>
+        <a class="collapse-item" href="#">Crear usuario</a>
+        <h6 class="collapse-header">Perfiles</h6>
+        <a class="collapse-item" href="#">Crear perfil</a>
+      </div>
+    </div>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseATM" aria-expanded="true"
+      aria-controls="collapseOne">
+      <i class="fas fa-fw fa-list-alt"></i>
+      <span>ATM</span>
+    </a>
+    <div id="collapseATM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <%#         <h6 class="collapse-header">Gestión:</h6> %>
+        <a class="collapse-item" href="<%= new_atm_path %>">Crear</a>
+        <a class="collapse-item" href="<%= atms_path %>">Buscar y Editar</a>
+      </div>
+    </div>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUbigeo" aria-expanded="true"
+      aria-controls="collapseUbigeo">
+      <i class="fas fa-fw fa-globe-americas"></i>
+      <span>Ubigeos</span>
+    </a>
+    <div id="collapseUbigeo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+        <a class="collapse-item" href="<%= new_department_path %>">Agregar departamento</a>
+        <a class="collapse-item" href="<%= new_province_path %>">Agregar provincia</a>
+        <a class="collapse-item" href="<%= new_district_path %>">Agregar distrito</a>
+      </div>
+    </div>
+  </li>
+
+
+  <!-- Nav Item - Pages Collapse Menu -->
+  <%#  <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccess" aria-expanded="true"
       aria-controls="collapseAccess">
       <i class="fas fa-fw fa-user-friends"></i>
@@ -73,33 +170,7 @@
         <a class="collapse-item" href="#">Crear locación</a>
       </div>
     </div>
-  </li>
-
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    Datos
-  </div>
-
-  <!-- Nav Item - Pages Collapse Menu -->
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUbigeo" aria-expanded="true"
-      aria-controls="collapseUbigeo">
-      <i class="fas fa-fw fa-globe-americas"></i>
-      <span>Ubigeos</span>
-    </a>
-    <div id="collapseUbigeo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-        <a class="collapse-item" href="<%= new_department_path %>">Agregar departamento</a>
-        <a class="collapse-item" href="<%= new_province_path %>">Agregar provincia</a>
-        <a class="collapse-item" href="<%= new_district_path %>">Agregar distrito</a>
-      </div>
-    </div>
-  </li>
+  </li> %>
 
   <!-- Nav Item - Utilities Collapse Menu -->
   <!-- <li class="nav-item">
@@ -162,8 +233,8 @@
       <span>Tables</span></a>
   </li> -->
 
-  <!-- Divider -->
-  <hr class="sidebar-divider d-none d-md-block">
+  <%#  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block"> %>
 
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">

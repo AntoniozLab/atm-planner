@@ -1,47 +1,47 @@
 <%= form_with(model: atm, local: true) do |form| %>
-  <% if atm.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(atm.errors.count, "error") %> prohibited this atm from being saved:</h2>
+<% if atm.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(atm.errors.count, "error") %> prohibited this atm from being saved:</h2>
 
-      <ul>
-        <% atm.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% atm.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :serial_number %>
-    <%= form.text_field :serial_number %>
-  </div>
+<div class="field">
+  <%= form.label :Número_Serie %>
+  <%= form.text_field :Número_Serie %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+<div class="field">
+  <%= form.label :Descripción %>
+  <%= form.text_field :Descripción %>
+</div>
 
-  <div class="field">
-    <%= form.label :manufactoring_date %>
-    <%= form.date_select :manufactoring_date %>
-  </div>
+<div class="field">
+  <%= form.label :Fecha_Manufactura %>
+  <%= form.date_select :Fecha_Manufactura %>
+</div>
 
-  <div class="field">
-    <%= form.label :atm_model_id %>
-    <%= form.text_field :atm_model_id %>
-  </div>
+<div class="field">
+  <%= form.label :Modelo_ATM %>
+  <%= form.text_field :Modelo_ATM %>
+</div>
 
-  <div class="field">
-    <%= form.label :atm_type_id %>
-    <%= form.text_field :atm_type_id %>
-  </div>
+<div class="field">
+  <%= form.label :Tipo_ATM %>
+  <%= form.text_field :Tipo_ATM %>
+</div>
 
-  <div class="field">
-    <%= form.label :atm_state_id %>
-    <%= form.text_field :atm_state_id %>
-  </div>
+<div class="field">
+  <%= form.label :Estado_ATM %>
+  <%= form.text_field :Estado_ATM %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit value = "Crear ATM" %>
+</div>
 <% end %>
