@@ -92,8 +92,6 @@ GEM
     ffi (1.12.2-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    graphicsmagick (1.0.6)
-      subexec
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.3)
@@ -182,7 +180,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    subexec (0.2.3)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -227,7 +224,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
-  graphicsmagick
   jbuilder (~> 2.7)
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
