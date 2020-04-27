@@ -23,7 +23,7 @@
       <td><%= atm.serial_number %></td>
       <td><%= atm.description %></td>
       <td><%= atm.manufactoring_date %></td>
-      <td><%= atm.atm_model_id %></td>
+      <td><%= AtmModel.select(:name).where("id = " + atm.atm_model_id.to_s).collect(&:name)[0] %></td>
       <td><%= AtmType.select(:name).where("id = " + atm.atm_type_id.to_s).collect(&:name)[0] %></td>
       <td><%= AtmState.select(:name).where("id = " + atm.atm_state_id.to_s).collect(&:name)[0] %></td>
       <td><%= link_to 'Mostrar', atm %></td>
