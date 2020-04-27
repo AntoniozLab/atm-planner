@@ -3,23 +3,23 @@
 <h2>Lista Atms</h2>
 
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark" align="center">
     <tr>
-      <th>Nro. Serie</th>
-      <th>Descripción</th>
-      <th>Fecha Manufactura</th>
-      <th>Modelo</th>
-      <th>Tipo</th>
-      <th>Estado</th>
+      <th scope="col">Nro. Serie</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Fecha Manufactura</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
 
   <tbody>
-    <% @atms.each do |atm| %>
-    <tr>
+    <% @atms.each do |atm|  %>
+    <tr align="center">
       <td><%= atm.serial_number %></td>
       <td><%= atm.description %></td>
       <td><%= atm.manufactoring_date %></td>
@@ -28,7 +28,9 @@
       <td><%= AtmState.select(:name).where("id = " + atm.atm_state_id.to_s).collect(&:name)[0] %></td>
       <td><%= link_to 'Mostrar', atm %></td>
       <td><%= link_to 'Editar', edit_atm_path(atm) %></td>
-      <td><%= link_to 'Eliminar', atm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to 'Eliminar', atm, method: :delete, data: { confirm: '¿Está seguro de eliminar el ATM seleccionado?' } %>
+      </td>
     </tr>
     <% end %>
   </tbody>
