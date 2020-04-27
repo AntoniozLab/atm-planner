@@ -1,0 +1,2 @@
+class RequirementState < ApplicationRecord
+end

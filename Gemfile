@@ -32,6 +32,8 @@ gem 'carrierwave'
 # Gema para manejar la autenticación
 gem 'devise'
 
+# Gema para crear datos de prueba
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
