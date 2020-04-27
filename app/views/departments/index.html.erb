@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-success"} %></h6>
+    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-outline-success"} %></h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -37,9 +37,9 @@
                   <tr>
                     <td><%= department.name %></td>
                     <td><%= department.ubigeo %></td>
-                    <td><%= link_to 'Detalle', department %></td>
-                    <td><%= link_to 'Editar', edit_department_path(department) %></td>
-                    <td><%= link_to 'Eliminar', department, method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+                    <td><%= link_to 'Detalle', department, :class => "text-info" %></td>
+                    <td><%= link_to 'Editar', edit_department_path(department), :class => "text-warning" %></td>
+                    <td><%= link_to 'Eliminar', department, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
                   </tr>
                 <% end %>
               </tbody>
