@@ -28,17 +28,17 @@
 
 <div class="field">
   <%= form.label :Modelo_ATM %>
-  <%= form.text_field :Modelo_ATM %>
+  <%= collection_select(:atm_model, :atm_brand_id, AtmModel.all.order(:name),:id , :name ) %>
 </div>
 
 <div class="field">
   <%= form.label :Tipo_ATM %>
-  <%= form.text_field :Tipo_ATM %>
+  <%= collection_select(:atm_type, :atm_brand_id, AtmType.all.order(:name),:id , :name ) %>
 </div>
 
 <div class="field">
   <%= form.label :Estado_ATM %>
-  <%= form.text_field :Estado_ATM %>
+  <%= collection_select(:atm_state, :atm_brand_id, AtmState.all.order(:name),:id , :name ) %>
 </div>
 
 <div class="actions">
