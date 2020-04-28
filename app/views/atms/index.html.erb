@@ -3,8 +3,8 @@
 <h2>Lista Atms</h2>
 
 
-<table class="table">
-  <thead class="thead-dark" align="center">
+<table class="table-bordered dataTable" width="100%" cellspacing="0" role="grid">
+  <thead align="center">
     <tr>
       <th scope="col">Nro. Serie</th>
       <th scope="col">Descripción</th>
@@ -39,12 +39,15 @@
 
 <hr>
 
-<%= will_paginate @atm, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outter_window: 3  %>
-<div class="text.center" align="center"><%= page_entries_info   %></div>
+<div class="items">
+  <div class="block-50-left">
+    <%= will_paginate %>
+  </div>
+</div>
 
-
-
-
+<div class="block-50-right">
+  <span class="text-info">Registros: <%= @atms.count %></span>
+</div>
 
 <hr>
 

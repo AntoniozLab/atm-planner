@@ -17,17 +17,17 @@
 
 <p>
   <strong>Modelo Atm:</strong>
-  <%= @atm.atm_model_id %>
+  <%= AtmModel.find(@atm.atm_model_id).name %>
 </p>
 
 <p>
   <strong>Tipo Atm:</strong>
-  <%= @atm.atm_type_id %>
+  <%= AtmType.find(@atm.atm_type_id).name %>
 </p>
 
 <p>
   <strong>Estado Atm:</strong>
-  <%= @atm.atm_state_id %>
+  <%= AtmState.find(@atm.atm_state_id).name %>
 </p>
 
 <%= link_to 'Editar', edit_atm_path(@atm) %> |
