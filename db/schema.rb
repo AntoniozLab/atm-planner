@@ -116,9 +116,8 @@ ActiveRecord::Schema.define(version: 2020_04_25_155955) do
 
   create_table "profiles", force: :cascade do |t|
     t.string "name"
+    t.string "type"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "provinces", force: :cascade do |t|
