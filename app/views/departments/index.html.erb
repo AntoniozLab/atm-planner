@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-success"} %></h6>
+    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-outline-success"} %></h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -14,7 +14,7 @@
 
         <div class="row">
           <div class="col-sm-12">
-            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid"
+            <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
               aria-describedby="dataTable_info" style="width: 100%;">
               <thead>
                 <tr role="row">
@@ -37,20 +37,31 @@
                   <tr>
                     <td><%= department.name %></td>
                     <td><%= department.ubigeo %></td>
-                    <td><%= link_to 'Detalle', department %></td>
-                    <td><%= link_to 'Editar', edit_department_path(department) %></td>
-                    <td><%= link_to 'Eliminar', department, method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+                    <td><%= link_to 'Detalle', department, :class => "text-info" %></td>
+                    <td><%= link_to 'Editar', edit_department_path(department), :class => "text-warning" %></td>
+                    <td><%= link_to 'Eliminar', department, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="row">
+        <div class="items">
+          <div class="block-50-left">
+            <%= will_paginate %>
+          </div>
+          <div class="block-50-right">
+            <span class="text-info">Registros: <%= @departments.count %></span>
+          </div>
+        </div>
+        <!-- <div class="row">
           <div class="col-sm-12 col-md-5">
             <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Registros: <%= @departments.count %></div>
+            <div class="block-paginate">
+              <%= will_paginate %>
+            </div>
           </div>          
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
