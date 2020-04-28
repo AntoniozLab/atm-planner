@@ -20,11 +20,24 @@
 	width: 50%;
 	text-align: center;
 }
+.block-50-right {
+    width: 50%;
+    text-align: right;
+}
+
+.block-50-left {
+    width: 50%;
+    text-align: left;
+}
 .block-25 {
 	width: 25%;
 }
 .block-33 {
 	width: 33.3%;
+}
+.block-paginate {
+    color: #36b9cc;
+    text-align: center !important;
 }
 
 fieldset-standard {
@@ -184,13 +197,13 @@ select.form-control-standard:focus::-ms-value {
 
 @media (min-width: 890px) and (max-width: 1140px) {
     .block-form {
-        width: 50%;
+        width: 60%;
     }
 }
 
 @media (min-width: 1141px) {
     .block-form {
-        width: 25%;
+        width: 40%;
     }
 
 }
