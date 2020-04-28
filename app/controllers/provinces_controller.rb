@@ -4,7 +4,7 @@ class ProvincesController < ApplicationController
   # GET /provinces
   # GET /provinces.json
   def index
-    @provinces = Province.all
+    @provinces = Province.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /provinces/1
