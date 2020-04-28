@@ -11,50 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <%# ID de usuario que genera el RQ %>
+  <div class="form-group">
+    <!-- <%= form.label :user_id, "Creado por:" %> -->
+    <h6><span class="badge badge-pill badge-primary">Creado por: <%= User.find(current_user.id).name User.find(current_user.id).last_name %></span></h6>
+    <%= hidden_field_tag 'user_id', current_user.id %>
+    <!-- <%= form.text_field :user_id %> -->
   </div>
 
-  <div class="field">
-    <%= form.label :request_date %>
-    <%= form.date_select :request_date %>
+  <div class="form-group">
+    <div class="alert alert-dark" role="alert">
+      A simple dark alert—check it out!
+    </div>
   </div>
 
-  <div class="field">
+
+  <%# Primera fila %>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <div class="form-row mx-0">
+          <%= form.label :request_date, "Fecha de solicitud" %>
+        </div>
+        <div class="form-row mx-0">
+          <%= form.date_select :request_date, {}, { :class => "form-control col form-control-sm mr-1" } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <%= form.label :user_assigned, "Asignar a:" %>
+        <!-- <%= form.number_field :user_assigned, class: "form-control form-control-sm" %> -->
+        <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
+      </div>
+    </div>
+  </div>
+
+  <%# segunda fila %>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <%= form.label :location_id, "Lugar de locación" %>
+        <%= form.text_field :location_id, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <%= form.label :attachment_url, "Adjuntar archivo" %>
+        <div class="form-row mx-0">
+          <%= form.text_field :attachment_url, class: "form-control form-control-sm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%# Tercera fila %>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <%= form.label :description, "Descripción" %>
+        <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "Descripción opcional" %>
+      </div>
+    </div>
+  </div>
+
+  <%# Datos de un requerimiento cuando esta culminado %>
+
+
+
+  <div class="form-group">
     <%= form.label :completion_date %>
     <%= form.date_select :completion_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :percentage_success %>
     <%= form.text_field :percentage_success %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_assigned %>
-    <%= form.number_field :user_assigned %>
-  </div>
 
-  <div class="field">
-    <%= form.label :attachment_url %>
-    <%= form.text_field :attachment_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :requirement_state_id %>
     <%= form.text_field :requirement_state_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :location_id %>
-    <%= form.text_field :location_id %>
-  </div>
+
 
   <div class="actions">
     <%= form.submit %>

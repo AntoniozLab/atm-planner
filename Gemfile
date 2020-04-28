@@ -34,6 +34,12 @@ gem 'will_paginate-bootstrap4'
 # Gema para manejar la autenticación
 gem 'devise'
 
+# Gema para crear datos de prueba
+gem 'faker'
+
+# Crea paginación
+gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

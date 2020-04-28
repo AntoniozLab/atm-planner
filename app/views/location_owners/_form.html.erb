@@ -1,32 +1,62 @@
-<%= form_with(model: location_owner, local: true) do |form| %>
-  <% if location_owner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location_owner.errors.count, "error") %> prohibited this location_owner from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>    
+      <%= form_with(model: location_owner, local: true) do |form| %>
+        <% if location_owner.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(location_owner.errors.count, "error") %> prohibited this location_owner from being saved:</h2>
 
-      <ul>
-        <% location_owner.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            <ul>
+              <% location_owner.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :name, "Nombre Cliente"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :business_name %>
-    <%= form.text_field :business_name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :business_name, "Razón Social"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :business_name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :document_number %>
-    <%= form.text_field :document_number %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :document_number, "Número de documento"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :document_number, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="items">
+          <div class="block-50-center">
+            <%= form.submit "Guardar", :class => "btn btn-success" %>
+          </div>
+          <div class="block-50-center" >
+              <%= link_to 'Atras', location_owners_path, :class => "btn btn-info" %>
+          </div>
+        </div> 
+
+      <% end %>
+    </fieldset>
+  </div> 
+</div>

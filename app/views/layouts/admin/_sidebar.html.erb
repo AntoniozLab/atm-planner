@@ -27,19 +27,20 @@
   <!-- Nav Item - Pages Collapse Menu -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-      aria-controls="collapseOne">
+    <!-- <a class="nav-link collapsed" href="/requeriments/" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+      aria-controls="collapseOne"> -->
+    <a class="nav-link" href="<%= requirements_path %>">  
       <i class="fas fa-fw fa-list-alt"></i>
       <span>Requerimientos</span>
     </a>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <!-- <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <h6 class="collapse-header">Gestión:</h6> -->
         <a class="collapse-item" href="<%= new_requirement_path %>">Crear requerimiento</a>
         <a class="collapse-item" href="<%= requirements_path %>">Ver todos</a>
       </div>
-    </div>
+    </div> -->
   </li>
+
 
   <!-- Nav Item - Pages Collapse Menu -->
   <%#   <li class="nav-item">
@@ -78,16 +79,28 @@
       aria-controls="collapseClients">
       <i class="fas fa-fw fa-user-friends"></i>
       <span>Clientes</span>
+=======
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClients" aria-expanded="true"
+      aria-controls="collapseClients">
+      <i class="fas fa-fw fa-globe-americas"></i>
+      <span>C & L</span>
     </a>
     <div id="collapseClients" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <h6 class="collapse-header">Usuarios</h6> -->
-        <a class="collapse-item" href="#">Crear cliente</a>
-        <a class="collapse-item" href="#">Crear locación</a>
+        <a class="collapse-item" href="/location_owners/">Cliente</a>
+        <a class="collapse-item" href="/location_contacts/">Contactos</a>
+        <a class="collapse-item" href="/locations/">Locacion</a>
+        <a class="collapse-item" href="/location_types/">Tipo Locacion</a>      
       </div>
     </div>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAtm" aria-expanded="true"
+      aria-controls="collapseAtm">
+      <i class="fas fa-fw fa-building"></i>
+      <span>Cajeros</span>
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
@@ -132,22 +145,40 @@
         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
         <a class="collapse-item" href="<%= new_location_path %>">Crear</a>
         <a class="collapse-item" href="<%= locations_path %>">Buscar y Editar</a>
+
+        <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Mantenimiento
+  </div>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccess" aria-expanded="true"
+      aria-controls="collapseAccess">
+      <i class="fas fa-fw fa-user-friends"></i>
+      <span>Administracion</span>
+    </a>
+    <div id="collapseAccess" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="">Usuario</a>
+        <a class="collapse-item" href="#">Perfil</a>
       </div>
     </div>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUbigeo" aria-expanded="true"
-      aria-controls="collapseUbigeo">
-      <i class="fas fa-fw fa-globe-americas"></i>
-      <span>Ubigeos</span>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfigure" aria-expanded="true"
+      aria-controls="collapseConfigure">
+      <i class="fas fa-fw fa-location-arrow"></i>
+      <span>Ubicacion</span>
     </a>
-    <div id="collapseUbigeo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseConfigure" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-        <a class="collapse-item" href="<%= new_department_path %>">Agregar departamento</a>
-        <a class="collapse-item" href="<%= new_province_path %>">Agregar provincia</a>
-        <a class="collapse-item" href="<%= new_district_path %>">Agregar distrito</a>
+        <a class="collapse-item" href="/departments">Departamento</a>
+        <a class="collapse-item" href="/provinces/">Provincia</a>
+        <a class="collapse-item" href="/districts/">Distrito</a>        
       </div>
     </div>
   </li>
@@ -185,6 +216,7 @@
       </div>
     </div>
   </li> %>
+
 
   <!-- Nav Item - Utilities Collapse Menu -->
   <!-- <li class="nav-item">

@@ -4,6 +4,10 @@ class RequirementsController < ApplicationController
 
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
+  def save
+    puts '===============> save'
+  end
+
   # GET /requirements
   # GET /requirements.json
   def index
@@ -17,6 +21,7 @@ class RequirementsController < ApplicationController
 
   # GET /requirements/new
   def new
+    @users = User.all
     @requirement = Requirement.new
   end
 
