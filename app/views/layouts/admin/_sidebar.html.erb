@@ -83,8 +83,13 @@
     </a>
     <div id="collapseClients" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Clientes</h6>
         <a class="collapse-item" href="/location_owners/">Clientes</a>
+        <h6 class="collapse-header">Contactos</h6>
         <a class="collapse-item" href="/location_contacts/">Contactos</a>
+        <h6 class="collapse-header">Locaciones</h6>
+        <a class="collapse-item" href="<%= new_location_path %>">Crear</a>
+        <a class="collapse-item" href="<%= locations_path %>">Buscar y Editar</a>
       </div>
     </div>
   </li>
@@ -114,28 +119,18 @@
     </a>
     <div id="collapseATM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <%#         <h6 class="collapse-header">Gestión:</h6> %>
-        <a class="collapse-item" href="<%= new_atm_path %>">Crear</a>
+        <h6 class="collapse-header">Cajero:</h6>
+        <a class="collapse-item" href="<%= new_atm_path %>">Crear ATM</a>
         <a class="collapse-item" href="<%= atms_path %>">Buscar y Editar</a>
+        <h6 class="collapse-header">Marcas:</h6>
+        <a class="collapse-item" href="<%= new_atm_brand_path %>">Nueva Marca</a>
+        <a class="collapse-item" href="<%= atm_brands_path %>">Buscar y Editar</a>
+        <h6 class="collapse-header">Estados:</h6>
+        <a class="collapse-item" href="<%= new_atm_state_path %>">Nuevo Estado</a>
+        <a class="collapse-item" href="<%= atm_states_path %>">Buscar y Editar</a>
       </div>
     </div>
   </li>
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLocacion" aria-expanded="true"
-      aria-controls="collapseLocacion">
-      <i class="fas fa-fw fa-globe-americas"></i>
-      <span>Locación</span>
-    </a>
-    <div id="collapseLocacion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-        <a class="collapse-item" href="<%= new_location_path %>">Crear</a>
-        <a class="collapse-item" href="<%= locations_path %>">Buscar y Editar</a>
-      </div>
-    </div>
-  </li>
-
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfigure" aria-expanded="true"
