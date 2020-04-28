@@ -20,11 +20,24 @@
 	width: 50%;
 	text-align: center;
 }
+.block-50-right {
+    width: 50%;
+    text-align: right;
+}
+
+.block-50-left {
+    width: 50%;
+    text-align: left;
+}
 .block-25 {
 	width: 25%;
 }
 .block-33 {
 	width: 33.3%;
+}
+.block-paginate {
+    color: #36b9cc;
+    text-align: center !important;
 }
 
 fieldset-standard {
