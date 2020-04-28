@@ -41,20 +41,10 @@
             <div class="block-100" >
             <%= form.label "Razón Social"%>
             </div>
-            <div class="block-100">              
-              <%= form.text_field :ruc_name, { :class => "form-control"} %>  
+            <div class="block-100">                             
+              <%= form.select :location_owner_id, LocationOwner.all.collect {|e| [e.business_name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
             </div>
           </div>    
-        </div>
-
-        <div class="field">
-          <div class="items">
-            <div class="block-100">
-             <%= form.label :location_owner_id, "RUC" %>
-            <div class="block-100">
-              <%= form.text_field :location_owner_id, { :class => "form-control"} %>  
-            </div>
-          </div>                
         </div>
 
         <div class="field", style="display: none;">
