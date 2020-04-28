@@ -37,14 +37,12 @@
 </table>
 
 
-<br>
 <hr>
 
-<div>
-  <%= will_paginate @atm,renderer: BootstrapPagination::Rails %>
-  <div class="text.center"><%= page_entries_info %></div>
+<%= will_paginate @atm, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 3, outter_window: 3  %>
+<div class="text.center" align="center"><%= page_entries_info   %></div>
 
-</div>
+
 
 
 

@@ -4,7 +4,7 @@ class AtmsController < ApplicationController
   # GET /atms
   # GET /atms.json
   def index
-    @atms = Atm.paginate(:page=>params[:page],per_page:20)
+    @atms = Atm.paginate(:page=>params[:page],per_page:15)
   end
 
   # GET /atms/1
