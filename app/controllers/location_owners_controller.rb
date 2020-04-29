@@ -4,7 +4,7 @@ class LocationOwnersController < ApplicationController
   # GET /location_owners
   # GET /location_owners.json
   def index
-    @location_owners = LocationOwner.all
+    @location_owners = LocationOwner.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /location_owners/1
