@@ -1,5 +1,14 @@
-<h1>New Profile</h1>
-
-<%= render 'form', profile: @profile %>
-
-<%= link_to 'Back', profiles_path %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Nuevo Perfil de Usuario</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= render 'form', profile: @profile %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

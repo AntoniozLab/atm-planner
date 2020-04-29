@@ -1,32 +1,63 @@
-<%= form_with(model: profile, local: true) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>
 
-      <ul>
-        <% profile.errors.full_messages.each do |message| %>
+      <%= form_with(model: profile, local: true, html: {class: 'admin' }) do |form| %>
+      <% if profile.errors.any? %>
+      <div id="error_explanation">
+        <h3 class="text-danger"><%= pluralize(profile.errors.count, "error(es)") %> al registrar.</h3>
+
+        <ul>
+          <% profile.errors.full_messages.each do |message| %>
           <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Nombre_Usuario %>
+          </div>
+          <div class="block-100">
+            <%= form.text_field :name, { :class => "form-control"} %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
-  </div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Tipo_Usuario %>
+          </div>
+          <div class="block-100">
+            <%= form.text_field :type, { :class => "form-control"} %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Descripción_de_Tipo_de_Usuario %>
+          </div>
+          <div class="block-100">
+            <%= form.text_field :description, { :class => "form-control"} %>
+          </div>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="items">
+        <div class="block-50-center">
+          <%= form.submit "Guardar", :class => "btn btn-success" %>
+        </div>
+        <div class="block-50-center">
+          <%= link_to 'Atrás', profiles_path, :class => "btn btn-info" %>
+        </div>
+      </div>
+      <%end%>
+
+      </fieldset>
   </div>
-<% end %>
+</div>
