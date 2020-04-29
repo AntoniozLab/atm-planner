@@ -1,6 +1,14 @@
-<h2>Editar Atm</h2>
-
-<%= render 'form', atm: @atm %>
-
-<%= link_to 'Mostrar', @atm %> |
-<%= link_to 'Atrás', atms_path %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Editar ATM</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= render 'form', atm: @atm %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,47 +1,96 @@
-<%= form_with(model: atm, local: true) do |form| %>
-<% if atm.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(atm.errors.count, "error") %> prohibited this atm from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>
 
-  <ul>
-    <% atm.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <%= form_with(model: atm, local: true, html: {class: 'admin' }) do |form| %>
+      <% if atm.errors.any? %>
+      <div id="error_explanation">
+        <h3 class="text-danger"><%= pluralize(atm.errors.count, "error(es)") %> al registrar.</h3>
+        <ul>
+          <% atm.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-<div class="field">
-  <%= form.label :Número_Serie %>
-  <%= form.text_field :Número_Serie %>
-</div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Número_Serie %>
+          </div>
+          <div class="block-100">
+            <%= form.text_field :serial_number, { :class => "form-control"} %>
+          </div>
+        </div>
+      </div>
 
-<div class="field">
-  <%= form.label :Descripción %>
-  <%= form.text_field :Descripción %>
-</div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Descripción %>
+          </div>
+          <div class="block-100">
+            <%= form.text_field :description, { :class => "form-control"} %>
+          </div>
+        </div>
+      </div>
 
-<div class="field">
-  <%= form.label :Fecha_Manufactura %>
-  <%= form.date_select :Fecha_Manufactura %>
-</div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Fecha_Manufactura %>
+          </div>
+          <div class="block-100">
+            <%= form.date_select :Fecha_Manufactura , { :class => "form-control"}%>
+          </div>
+        </div>
+      </div>
 
-<div class="field">
-  <%= form.label :Modelo_ATM %>
-  <%= collection_select(:atm_model, :atm_brand_id, AtmModel.all.order(:name),:id , :name ) %>
-</div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Modelo_ATM, "Modelo ATM" %>
+          </div>
+          <div class="block-100">
+            <%= form.select :atm_model_id, AtmModel.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+          </div>
+        </div>
 
-<div class="field">
-  <%= form.label :Tipo_ATM %>
-  <%= collection_select(:atm_type, :atm_brand_id, AtmType.all.order(:name),:id , :name ) %>
-</div>
+      </div>
 
-<div class="field">
-  <%= form.label :Estado_ATM %>
-  <%= collection_select(:atm_state, :atm_brand_id, AtmState.all.order(:name),:id , :name ) %>
-</div>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Tipo_ATM, "Tipo ATM" %>
+          </div>
+          <div class="block-100">
+            <%= form.select :atm_type_id, AtmType.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+          </div>
+        </div>
+      </div>
 
-<div class="actions">
-  <%= form.submit value = "Crear ATM" %>
+      <div class="field">
+        <div class="items">
+          <div class="block-100">
+            <%= form.label :Estado_ATM, "Estado ATM" %>
+          </div>
+          <div class="block-100">
+            <%= form.select :atm_state_id, AtmState.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="items">
+        <div class="block-50-center">
+          <%= form.submit "Guardar", :class => "btn btn-success" %>
+        </div>
+        <div class="block-50-center">
+          <%= link_to 'Atrás', atms_path, :class => "btn btn-info" %>
+        </div>
+      </div>
+      <%end%>
+
+      </fieldset>
+  </div>
 </div>
-<% end %>

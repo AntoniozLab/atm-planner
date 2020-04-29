@@ -20,6 +20,7 @@ class AtmsController < ApplicationController
 
   # GET /atms/1/edit
   def edit
+    
   end
 
   # POST /atms

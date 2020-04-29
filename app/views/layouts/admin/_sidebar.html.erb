@@ -83,53 +83,43 @@
     </a>
     <div id="collapseClients" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Clientes</h6>
+        <!-- <h6 class="collapse-header">Clientes</h6> -->
         <a class="collapse-item" href="/location_owners/">Clientes</a>
-        <h6 class="collapse-header">Contactos</h6>
         <a class="collapse-item" href="/location_contacts/">Contactos</a>
-        <h6 class="collapse-header">Locaciones</h6>
-        <a class="collapse-item" href="<%= new_location_path %>">Crear</a>
-        <a class="collapse-item" href="<%= locations_path %>">Buscar y Editar</a>
+        <a class="collapse-item" href="<%= new_location_path %>">Locaciones</a>
       </div>
     </div>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
-      aria-controls="collapseUsers">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfiles" aria-expanded="true"
+      aria-controls="collapseProfiles">
       <i class="fas fa-fw fa-user-tie"></i>
-      <span>Usuarios</span>
+      <span>Perfiles de Usuarios</span>
     </a>
-    <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseProfiles" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Usuarios</h6>
-        <a class="collapse-item" href="#">Crear usuario</a>
-        <h6 class="collapse-header">Perfiles</h6>
-        <a class="collapse-item" href="#">Crear perfil</a>
+        <a class="collapse-item" href=<%= profiles_path %> ">Lista Perfiles</a>
       </div>
     </div>
   </li>
 
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseATM" aria-expanded="true"
-      aria-controls="collapseOne">
-      <i class="fas fa-fw fa-list-alt"></i>
-      <span>ATM</span>
-    </a>
-    <div id="collapseATM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Cajero:</h6>
-        <a class="collapse-item" href="<%= new_atm_path %>">Crear ATM</a>
-        <a class="collapse-item" href="<%= atms_path %>">Buscar y Editar</a>
-        <h6 class="collapse-header">Marcas:</h6>
-        <a class="collapse-item" href="<%= new_atm_brand_path %>">Nueva Marca</a>
-        <a class="collapse-item" href="<%= atm_brands_path %>">Buscar y Editar</a>
-        <h6 class="collapse-header">Estados:</h6>
-        <a class="collapse-item" href="<%= new_atm_state_path %>">Nuevo Estado</a>
-        <a class="collapse-item" href="<%= atm_states_path %>">Buscar y Editar</a>
-      </div>
-    </div>
+  <li class=" nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseATM" aria-expanded="true"
+            aria-controls="collapseOne">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>ATM</span>
+          </a>
+          <div id="collapseATM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <h6 class="collapse-header">Cajero:</h6>
+          <a class="collapse-item" href="<%= new_atm_path %>">Crear ATM</a>  -->
+              <a class="collapse-item" href="<%= atms_path %>">Existencias ATM</a>
+              <a class="collapse-item" href="<%= atm_brands_path %>">Marcas</a>
+              <a class="collapse-item" href="<%= atm_states_path %>">Estados</a>
+            </div>
+          </div>
   </li>
 
   <li class="nav-item">
