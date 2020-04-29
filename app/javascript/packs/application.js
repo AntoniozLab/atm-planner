@@ -17,11 +17,10 @@ window.jQuery = $;
 window.$ = $;
 
 // Plugins para las páginas internas del dashboard
-// require('chart.js');
+require("chart.js");
 
 // Archivos personalizados para las páginas internas del dahsboard
-require("custom/sb-admin-2");
-require("custom/requirements");
+require("custom/admin/general");
 require("custom/admin/requirements");
 
 // Para uso de Chart
