@@ -6,7 +6,8 @@
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-outline-success"} %></h6>
+    <h6 class="m-0 font-weight-bold text-primary">
+      <%= link_to 'Nuevo registro', new_department_path, { :class => "btn btn-outline-success"} %></h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -22,7 +23,7 @@
                     aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 60px;">
                     Nombre</th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Ubigeo</th>                  
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Ubigeo</th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                     aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
@@ -34,13 +35,15 @@
 
               <tbody>
                 <% @departments.each do |department| %>
-                  <tr>
-                    <td><%= department.name %></td>
-                    <td><%= department.ubigeo %></td>
-                    <td><%= link_to 'Detalle', department, :class => "text-info" %></td>
-                    <td><%= link_to 'Editar', edit_department_path(department), :class => "text-warning" %></td>
-                    <td><%= link_to 'Eliminar', department, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
-                  </tr>
+                <tr>
+                  <td><%= department.name %></td>
+                  <td><%= department.ubigeo %></td>
+                  <td><%= link_to 'Detalle', department, :class => "text-info" %></td>
+                  <td><%= link_to 'Editar', edit_department_path(department), :class => "text-warning" %></td>
+                  <td>
+                    <%= link_to 'Eliminar', department, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %>
+                  </td>
+                </tr>
                 <% end %>
               </tbody>
             </table>

@@ -1,54 +1,77 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Lista Atms</h2>
+<h2 class="title">Lista Atms</h2>
+
+<br>
+
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">
+      <%= link_to 'Nuevo registro', new_atm_path, { :class => "btn btn-outline-success"} %></h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
+              aria-describedby="dataTable_info" style="width: 100%;">
+              <thead align="center">
+                <tr role="row">
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending"
+                    aria-label="Name: activate to sort column descending" style="width: 60px;">
+                    Nro. Serie</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Descripción</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Fecha Manufactura</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Modelo</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Tipo</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Estado</th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Start date: activate to sort column ascending" style="width: 40px;"></th>
+                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Salary: activate to sort column ascending" style="width: 40px;"></th>
+                </tr>
+              </thead>
 
 
-<table class="table-bordered dataTable" width="100%" cellspacing="0" role="grid">
-  <thead align="center">
-    <tr>
-      <th scope="col">Nro. Serie</th>
-      <th scope="col">Descripción</th>
-      <th scope="col">Fecha Manufactura</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Estado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+              <tbody>
+                <% @atms.each do |atm|  %>
+                <tr align="center">
+                  <td><%= atm.serial_number %></td>
+                  <td><%= atm.description %></td>
+                  <td><%= atm.manufactoring_date %></td>
+                  <td><%= AtmModel.select(:name).where("id = " + atm.atm_model_id.to_s).collect(&:name)[0] %></td>
+                  <td><%= AtmType.select(:name).where("id = " + atm.atm_type_id.to_s).collect(&:name)[0] %></td>
+                  <td><%= AtmState.select(:name).where("id = " + atm.atm_state_id.to_s).collect(&:name)[0] %></td>
+                  <td><%= link_to 'Detalle', atm,:class => "text-info" %></td>
+                  <td><%= link_to 'Editar', edit_atm_path(atm), :class => "text-warning" %></td>
+                  <td>
+                    <%= link_to 'Eliminar', atm, :class => "text-danger", method: :delete, data: { confirm: '¿Está seguro de eliminar el ATM seleccionado?' } %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
 
-
-  <tbody>
-    <% @atms.each do |atm|  %>
-    <tr align="center">
-      <td><%= atm.serial_number %></td>
-      <td><%= atm.description %></td>
-      <td><%= atm.manufactoring_date %></td>
-      <td><%= AtmModel.select(:name).where("id = " + atm.atm_model_id.to_s).collect(&:name)[0] %></td>
-      <td><%= AtmType.select(:name).where("id = " + atm.atm_type_id.to_s).collect(&:name)[0] %></td>
-      <td><%= AtmState.select(:name).where("id = " + atm.atm_state_id.to_s).collect(&:name)[0] %></td>
-      <td><%= link_to 'Mostrar', atm %></td>
-      <td><%= link_to 'Editar', edit_atm_path(atm) %></td>
-      <td>
-        <%= link_to 'Eliminar', atm, method: :delete, data: { confirm: '¿Está seguro de eliminar el ATM seleccionado?' } %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<hr>
-
-<div class="items">
-  <div class="block-50-left">
-    <%= will_paginate %>
+          </div>
+        </div>
+        <div class="items">
+          <div class="block-50-left">
+            <%= will_paginate %>
+          </div>
+          <div class="block-50-right">
+            <span class="text-info">Registros: <%= @atms.count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="block-50-right">
-  <span class="text-info">Registros: <%= @atms.count %></span>
-</div>
-
-<hr>
-
-<%= link_to 'Nuevo Atm', new_atm_path %>
