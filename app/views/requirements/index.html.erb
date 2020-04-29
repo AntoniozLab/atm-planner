@@ -1,43 +1,92 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Requirements</h1>
+<h1 class="h3 mb-4 text-info font-weight-bold">Requerimientos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Request date</th>
-      <th>Completion date</th>
-      <th>Percentage success</th>
-      <th>User assigned</th>
-      <th>Attachment url</th>
-      <th>User</th>
-      <th>Requirement state</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-lg-11">
+    <!-- <div>
+      <p class="mb-4">Los requerimientos son las peticiones que realizan los usuarios para poder realizar una operación
+        de
+        instalación, retiro o movimiento de cajero.</p>
+    </div> -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary"></h6> -->
+        <%= link_to 'Nuevo requerimiento', new_requirement_path, class: "btn
+        btn-primary btn-sm" %>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive small">
+          <table
+            class="table table-bordered"
+            id="dataTable"
+            width="100%"
+            cellspacing="0"
+          >
+            <thead>
+              <tr>
+                <th>Solicitante</th>
+                <th>Solicitud</th>
+                <th>Finalización</th>
+                <!-- <th>Porcentaje</th> -->
+                <th>Asignado</th>
+                <!-- <th>Attachment url</th> -->
 
-  <tbody>
-    <% @requirements.each do |requirement| %>
-      <tr>
-        <td><%= requirement.description %></td>
-        <td><%= requirement.request_date %></td>
-        <td><%= requirement.completion_date %></td>
-        <td><%= requirement.percentage_success %></td>
-        <td><%= requirement.user_assigned %></td>
-        <td><%= requirement.attachment_url %></td>
-        <td><%= requirement.user_id %></td>
-        <td><%= requirement.requirement_state_id %></td>
-        <td><%= requirement.location_id %></td>
-        <td><%= link_to 'Show', requirement %></td>
-        <td><%= link_to 'Edit', edit_requirement_path(requirement) %></td>
-        <td><%= link_to 'Destroy', requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <th>Estado</th>
+                <th>Cliente</th>
+                <th>Lugar</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
 
-<br>
-
-<%= link_to 'New Requirement', new_requirement_path %>
+            <tbody>
+              <% @requirements.each do |requirement| %>
+              <tr>
+                <td>
+                  <% userCreator = User.find(requirement.user_id) %>
+                  <%= "#{userCreator.name} #{userCreator.last_name}" %>
+                </td>
+                <td><%= requirement.request_date.strftime('%d/%m/%Y') %></td>
+                <td><%= requirement.completion_date.strftime('%d/%m/%Y') %></td>
+                <!-- <td><%= "#{requirement.percentage_success} %" %></td> -->
+                <td>
+                <% userAssigned = User.find(requirement.user_assigned) %>
+                <%= "#{userAssigned.name} #{userAssigned.last_name}" %>
+                </td>
+                <!-- <td><%= requirement.attachment_url %></td> -->
+                <td>
+                  <%= RequirementState.find(requirement.requirement_state_id).name %>
+                </td>
+                <td>
+                <% location = Location.find(requirement.location_id) %>
+                <%= LocationOwner.find(location.location_owner_id).name %>
+                </td>
+                <td><%= location.name %></td>
+                <td><%= link_to 'Show', requirement %></td>
+                <td>
+                  <%= link_to 'Edit', edit_requirement_path(requirement) %>
+                </td>
+                <td>
+                  <%= link_to 'Destroy', requirement, method: :delete, data: {
+                  confirm: 'Desea eliminar?' } %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Links inferiores -->
+    <hr />
+    <ul class="nav small">
+      <li class="nav-item">
+        <%= link_to 'Nuevo requerimiento', new_requirement_path, class: "btn
+        btn-primary btn-sm" %>
+        <!-- <a href="<%= requirements_path %>" class="nav-link py-1 px-2">Crear requerimiento</a> -->
+      </li>
+    </ul>
+  </div>
+</div>

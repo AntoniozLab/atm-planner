@@ -1,141 +1,164 @@
 <div class="requirement_detail">
 
-  <!-- Row RQ Type -->
-  <div class="row mb-3">
-    <div class="col-4">
-      <div class="form-group">
+  <!--<div class="col-xl-12 col-md-12 mb-4"> -->
+    <div class="card border-left-primary h-100 py-1 mt-2">
+      <div class="card-body p-2 px-3">
+        <div class="row no-gutters align-items-center">
+          <div class="col">
+            <div class="h6 font-weight-bold text-primary mb-1 border-bottom bb-dotted pb-1 mb-3">Detalle:</div>
 
-        <div class="form-row mx-0">
-          <%= form.label :atm_old, "Tipo:" %>
+            <!-- First row -->
+            <div class="row mb-2">
+              <div class="col-sm col-md-4">
+                <div class="form-group">
+
+                  <div class="form-row mx-0">
+                    <%= form.label :atm_old, "Tipo:" %>
+                  </div>
+
+                  <%= form.input :requirement_type_id, label: false, :collection => Proc.new{ RequirementType.all.map{ |type| [type.name, type.id, :class => "type-#{type.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm js_rq-type' } %>
+
+                </div>
+              </div>
+              <div class="col-sm col-md-4">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :requirement_detail_reason_id, "Motivo:" %>
+                  </div>
+
+                  <%= form.input :requirement_detail_reason_id, label: false, :collection => Proc.new{ RequirementDetailReason.all.map{ |reason| [reason.name, reason.id, :class => "reason-#{reason.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm reason-selectizex' } %>
+
+                </div>
+              </div>
+
+              <div class="col-sm col-md-4">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :requirement_detail_state_id, "Estado:" %>
+                  </div>
+
+                  <% if @requirement.id.nil? %>
+
+                    <%= form.input :requirement_detail_state_id, label: false, :collection => [['Nuevo', '1']] , selected: 1, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm state-selectizex' } %>
+
+                  <% else  %>
+
+                    <%= form.input :requirement_detail_state_id, label: false, :collection => Proc.new{ RequirementDetailState.all.map{ |state| [state.name, state.id, :class => "state-#{state.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm state-selectizex' } %>
+
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+            <!--/First row-->
+
+
+            <!-- Second row -->
+            <div class="row mb-2">
+              <div class="col js_box-atm-old">
+                <div class="form-group">
+
+                  <div class="form-row mx-0">
+                    <%= form.label :atm_old, "Cajero a retirar:" %>
+                  </div>
+
+                  <%= form.input :atm_old, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+
+                  <!-- <%= form.input :atm_old, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
+
+                </div>
+              </div>
+              <div class="col js_box-atm-new">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :atm_new, "Cajero a instalar:" %>
+                  </div>
+                  <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+
+                  <!-- <%= form.input :atm_new, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
+
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :description, "Descripción:" %>
+                  </div>
+                  <%= form.input :description, placeholder: "Opcional", label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
+                </div>
+              </div>
+            </div>
+            <!--/Second row-->
+
+            <!-- Third row -->
+            <div class="row mb2">
+
+              <div class="col-6">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :start_date, "Fecha de inicio:" %>
+                  </div>
+                  <%= form.input :start_date, label: false, as: :date, start_year: Date.today.year,
+                                  end_year: Date.today.year - 12, discard_day: false,
+                                  order: [:year, :month, :day], wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
+                </div>
+              </div>
+
+
+              <div class="col-6">
+                <% if @requirement.id? %>
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :end_date, "Fecha de finalización:" %>
+                  </div>
+                  <%= form.input :end_date, label: false, as: :date, start_year: Date.today.year,
+                                  end_year: Date.today.year - 12, discard_day: false,
+                                  order: [:year, :month, :day], :include_blank => true, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
+                </div>
+
+                <% end %>
+              </div>
+
+            </div>
+            <!-- /Third row -->
+
+            <!-- Fourth row -->
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :description, "Descripción:" %>
+                  </div>
+                  <%= form.input :description, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
+                </div>
+              </div>
+              <div class="col">
+                <% if @requirement.id? %>
+                <div class="form-group">
+                  <div class="form-row mx-0">
+                    <%= form.label :description, "Observación de cancelación:" %>
+                  </div>
+                  <%= form.input :cancel_observation, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
+                </div>
+                <% end %>
+              </div>
+            </div>
+            <!--/Fourth row -->
+
+          </div>
+
         </div>
-
-        <%= form.input :requirement_type_id, label: false, :collection => Proc.new{ RequirementType.all.map{ |type| [type.name, type.id, :class => "type-#{type.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm type-selectizex' } %>
-
       </div>
     </div>
-    <div class="col-4">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :requirement_detail_reason_id, "Motivo:" %>
-        </div>
-
-        <%= form.input :requirement_detail_reason_id, label: false, :collection => Proc.new{ RequirementDetailReason.all.map{ |reason| [reason.name, reason.id, :class => "reason-#{reason.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm reason-selectizex' } %>
-
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :requirement_detail_state_id, "Estado:" %>
-        </div>
-
-        <% if @requirement.id.nil? %>
-
-          <%= form.input :requirement_detail_state_id, label: false, :collection => [['Nuevo', '1']] , selected: 1, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm state-selectizex' } %>
-
-        <% else  %>
-
-          <%= form.input :requirement_detail_state_id, label: false, :collection => Proc.new{ RequirementDetailState.all.map{ |state| [state.name, state.id, :class => "state-#{state.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm state-selectizex' } %>
-
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-  <!--/end Row Atms-->
-
-  <!-- Row Atms -->
-  <div class="row mb-3">
-    <div class="col-4">
-      <div class="form-group">
-
-        <div class="form-row mx-0">
-          <%= form.label :atm_old, "Cajero anterior:" %>
-        </div>
-
-        <%= form.input :atm_old, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
-
-        <!-- <%= form.input :atm_old, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
-
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :atm_new, "Cajero nuevo:" %>
-        </div>
-        <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
-
-        <!-- <%= form.input :atm_new, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
-
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :description, "Descripción:" %>
-        </div>
-        <%= form.input :description, placeholder: "Opcional", label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
-      </div>
-    </div>
-  </div>
-  <!--/end Row Atms-->
-
-
-  <!-- Fechas -->
-  <div class="row">
-
-    <!-- Fecha de inicio  -->
-    <div class="col-6">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :start_date, "Fecha de inicio:" %>
-        </div>
-        <%= form.input :start_date, label: false, as: :date, start_year: Date.today.year,
-                        end_year: Date.today.year - 12, discard_day: false,
-                        order: [:year, :month, :day], wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
-      </div>
-    </div>
-    <!--/Fecha de inicio -->
-
-    <!-- Fecha de fin  -->
-    <div class="col-6">
-      <% if @requirement.id.nil? %>
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :end_date, "Fecha de finalización:" %>
-        </div>
-        <%= form.input :end_date, label: false, as: :date, start_year: Date.today.year,
-                        end_year: Date.today.year - 12, discard_day: false,
-                        order: [:year, :month, :day], :include_blank => true, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
-      </div>
-
-      <% end %>
-    </div>
-    <!--/Fecha de fin -->
-
-  </div>
-  <!-- /end Fechas -->
+  <!--</div>-->
 
 
 
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :description, "Descripción:" %>
-        </div>
-        <%= form.input :description, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-group">
-        <div class="form-row mx-0">
-          <%= form.label :description, "Observación de cancelación:" %>
-        </div>
-        <%= form.input :cancel_observation, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
+
 </div>

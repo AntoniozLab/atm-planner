@@ -1,24 +1,28 @@
-<%= form_with(model: requirement, local: true) do |form| %>
+<%= form_with(model: requirement, local: true, class: "") do |form| %>
   <% if requirement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(requirement.errors.count, "error") %> prohibited this requirement from being saved:</h2>
+      <div class="alert alert-sm alert-warning px-3 py-2">
+        <p class="mb-2"><%= pluralize(requirement.errors.count, "error") %> impide crear el requerimiento:</p>
 
-      <ul>
-        <% requirement.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul class="mb-0">
+          <% requirement.errors.full_messages.each do |message| %>
+          <li class=""><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <%# ID de usuario que genera el RQ %>
-  <div class="form-group">
-    <%= form.label :user_id, "Solicitante:" %>
-    <%= User.find(current_user.id).name %> <%= User.find(current_user.id).last_name %>
-    <!-- <%= hidden_field(:user_id, current_user.id) %> -->
 
-    <%= form.text_field :user_id, :value=> current_user.id, class: "d-none" %>
-  </div>
+
+  <i class="fas fa-clipboard-list"></i>
+  <%= "#{current_user.name} #{current_user.last_name}" %>
+  <!-- <%= form.label :user_id, "Solicitante:" %>
+  <%= User.find(current_user.id).name %> <%= User.find(current_user.id).last_name %> -->
+  <%= form.text_field :user_id, :value=> current_user.id, class: "d-none" %>
+
+  <hr>
 
   <div class="row">
     <div class="col-6">
@@ -51,13 +55,13 @@
       <div class="form-group">
         <%= form.label :user_assigned, "Asignar a:" %>
         <!-- <%= form.number_field :user_assigned, class: "form-control form-control-sm" %> -->
-        <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
+        <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
       </div>
 
     </div>
     <div class="col">
       <div class="form-group">
-        <%= form.label :location_id, "Lugar de locación" %>
+        <%= form.label :location_id, "Lugar" %>
         <%= form.select :location_id, Location.all.collect {|location| [location.name, location.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
         <!-- <%= form.text_field :location_id, class: "form-control form-control-sm" %> -->
       </div>
@@ -69,7 +73,7 @@
     <div class="col-12">
       <div class="form-group">
         <%= form.label :description, "Descripción" %>
-        <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "opcional" %>
+        <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "Opcional" %>
       </div>
     </div>
   </div>
@@ -105,8 +109,6 @@
   </div>
   <% end %>
 
-
-  <hr />
   <%# Nested form %>
   <%# Detalle de requerimiento %>
   <div class="form-group">
@@ -116,7 +118,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.submit nil, :class=> "btn btn-primary" do %>
+    <%= form.submit "Guardar", :class=> "btn btn-primary" do %>
     <% end %>
   </div>
 <% end %>

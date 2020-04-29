@@ -9,7 +9,7 @@
 
 <div class="row">
   <!-- Area Chart -->
-  <div class="col-xl-8 col-lg-7">
+  <div class="col col-md-8">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div
@@ -53,27 +53,27 @@
           >
             <thead>
               <tr>
-                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Correo</th>
+                <th>Perfil</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Correo</th>
+                <th>Perfil</th>
               </tr>
             </tfoot>
             <tbody>
               <% @users.each do |user| %>
               <tr>
-                <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.last_name %></td>
                 <td><%= user.email %></td>
+                <td><%= Profile.find(user.profile_id).name %></td>
               </tr>
               <% end %>
             </tbody>
@@ -84,7 +84,7 @@
   </div>
 
   <!-- Pie Chart -->
-  <div class="col-xl-4 col-lg-5">
+  <div class="col col-md-4">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div
