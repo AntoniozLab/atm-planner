@@ -1,6 +1,14 @@
-<h1>Editing Province</h1>
-
-<%= render 'form', province: @province %>
-
-<%= link_to 'Show', @province %> |
-<%= link_to 'Back', provinces_path %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Editar Provincia</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= render 'form', province: @province %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
