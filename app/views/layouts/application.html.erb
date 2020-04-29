@@ -16,6 +16,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="turbolinks-cache-control" content="no-preview">
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
 
     <link
@@ -186,7 +187,7 @@
 
               <!-- Nav Item - Messages -->
               <li class="nav-item dropdown no-arrow mx-1">
-                <a
+                <!-- <a
                   class="nav-link dropdown-toggle"
                   href="#"
                   id="messagesDropdown"
@@ -196,9 +197,9 @@
                   aria-expanded="false"
                 >
                   <i class="fas fa-envelope fa-fw"></i>
-                  <!-- Counter - Messages -->
+
                   <span class="badge badge-danger badge-counter">7</span>
-                </a>
+                </a> -->
                 <!-- Dropdown - Messages -->
                 <div
                   class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -343,7 +344,7 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="container-fluid">
+          <div class="container-fluid px-3">
             <%= yield %>
           </div>
           <!-- /.container-fluid -->
