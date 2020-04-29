@@ -5,8 +5,7 @@
       <%= form_with(model: atm_state, local: true, html: {class: 'admin' }) do |form| %>
       <% if atm_state.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(atm_state.errors.count, "error") %> prohibited this atm from being saved:</h2>
-
+        <h3 class="text-danger"><%= pluralize(atm_state.errors.count, "error(es)") %> al registrar.</h3>
         <ul>
           <% atm_state.errors.full_messages.each do |message| %>
           <li><%= message %></li>
