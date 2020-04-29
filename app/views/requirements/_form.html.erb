@@ -15,13 +15,13 @@
   <div class="form-group">
     <%= form.label :user_id, "Solicitante:" %>
     <%= User.find(current_user.id).name %> <%= User.find(current_user.id).last_name %>
-    <!-- <%= hidden_field :user_id, current_user.id %> -->
-    <%= form.text_field :user_id %>
+    <!-- <%= hidden_field(:user_id, current_user.id) %> -->
+
+    <%= form.text_field :user_id, :value=> current_user.id, class: "d-none" %>
   </div>
 
-  <%# Primera fila %>
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <div class="form-group">
         <div class="form-row mx-0">
           <%= form.label :request_date, "Fecha de solicitud" %>
@@ -30,25 +30,53 @@
           <%= form.date_select :request_date, {}, { :class => "form-control form-control-sm col mr-1" } %>
         </div>
       </div>
+
+
+
     </div>
+    <div class="col-6">
+
+      <div class="form-group">
+        <%= form.label :requirement_state_id, "Estado:" %>
+        <%= form.select :requirement_state_id, RequirementState.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
+        <!-- <%= form.text_field :requirement_state_id %> -->
+      </div>
+
+    </div>
+  </div>
+
+  <%# Primera fila %>
+  <div class="row">
     <div class="col">
       <div class="form-group">
         <%= form.label :user_assigned, "Asignar a:" %>
         <!-- <%= form.number_field :user_assigned, class: "form-control form-control-sm" %> -->
         <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
       </div>
+
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :location_id, "Lugar de locación" %>
+        <%= form.select :location_id, Location.all.collect {|location| [location.name, location.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
+        <!-- <%= form.text_field :location_id, class: "form-control form-control-sm" %> -->
+      </div>
     </div>
   </div>
 
   <%# segunda fila %>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
       <div class="form-group">
-        <%= form.label :location_id, "Lugar de locación" %>
-        <%= form.select :location_id, Location.all.collect {|location| [location.name, location.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
-        <!-- <%= form.text_field :location_id, class: "form-control form-control-sm" %> -->
+        <%= form.label :description, "Descripción" %>
+        <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "opcional" %>
       </div>
     </div>
+  </div>
+
+
+  <%# Archivo adjunto %>
+  <!-- <div class="row">
     <div class="col-6">
       <div class="form-group">
         <%= form.label :attachment_url, "Adjuntar archivo" %>
@@ -57,39 +85,26 @@
         </div>
       </div>
     </div>
-  </div>
-
-
-  <%# Tercera fila %>
-  <div class="row">
-    <div class="col-6">
-      <div class="form-group">
-        <%= form.label :description, "Descripción" %>
-        <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "Descripción opcional" %>
-      </div>
-    </div>
-  </div>
+  </div> -->
 
   <%# Datos de un requerimiento cuando esta culminado %>
 
 
-
+  <% if @requirement.id? %>
   <div class="form-group">
     <%= form.label :completion_date %>
     <%= form.date_select :completion_date, :include_blank => true %>
   </div>
+  <% end %>
+
+  <% if @requirement.id? %>
 
   <div class="form-group">
     <%= form.label :percentage_success %>
     <%= form.text_field :percentage_success %>
   </div>
+  <% end %>
 
-
-  <div class="form-group">
-    <%= form.label :requirement_state_id %>
-    <%= form.select :requirement_state_id, RequirementState.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
-    <!-- <%= form.text_field :requirement_state_id %> -->
-  </div>
 
   <hr />
   <%# Nested form %>

@@ -1,4 +1,13 @@
 $(function () {
+  $(".selectize").select2({
+    placeholder: "Seleccionar",
+  });
+
+  // Selectize genérico
+  $(".requirement_detail .selectize").select2({
+    placeholder: "Seleccionar",
+  });
+
   $(".requirement_detail .atm-selectize").select2({
     placeholder: "Número de serie",
   });
