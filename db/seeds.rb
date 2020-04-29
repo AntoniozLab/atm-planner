@@ -5,9 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-# Ejecuta todos los archivos seed dentro del directorio "./seeds"
-Dir[File.join(Rails.root, 'db', 'seeds', '*_seeds.rb')].sort.each do |seed|
-  require seed
-  # load seed
-end

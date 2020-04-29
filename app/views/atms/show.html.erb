@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Serial number:</strong>
+  <strong>Nro. Serie:</strong>
   <%= @atm.serial_number %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descripción:</strong>
   <%= @atm.description %>
 </p>
 
 <p>
-  <strong>Manufactoring date:</strong>
+  <strong>Fecha Manufactura:</strong>
   <%= @atm.manufactoring_date %>
 </p>
 
 <p>
-  <strong>Atm model:</strong>
-  <%= @atm.atm_model_id %>
+  <strong>Modelo Atm:</strong>
+  <%= AtmModel.find(@atm.atm_model_id).name %>
 </p>
 
 <p>
-  <strong>Atm type:</strong>
-  <%= @atm.atm_type_id %>
+  <strong>Tipo Atm:</strong>
+  <%= AtmType.find(@atm.atm_type_id).name %>
 </p>
 
 <p>
-  <strong>Atm state:</strong>
-  <%= @atm.atm_state_id %>
+  <strong>Estado Atm:</strong>
+  <%= AtmState.find(@atm.atm_state_id).name %>
 </p>
 
-<%= link_to 'Edit', edit_atm_path(@atm) %> |
-<%= link_to 'Back', atms_path %>
+<%= link_to 'Editar', edit_atm_path(@atm) %> |
+<%= link_to 'Atrás', atms_path %>
