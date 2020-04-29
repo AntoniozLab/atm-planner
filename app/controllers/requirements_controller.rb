@@ -4,10 +4,6 @@ class RequirementsController < ApplicationController
 
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
 
-  def save
-    puts '===============> save'
-  end
-
   # GET /requirements
   # GET /requirements.json
   def index
@@ -21,12 +17,17 @@ class RequirementsController < ApplicationController
 
   # GET /requirements/new
   def new
-    @users = User.all
+    # @users = User.all
     @requirement = Requirement.new
+    @requirement.requirement_details.build
+
+    # Valores por defecto al crear un Requerimiento
+    # @default_requirement_detail_state_id
   end
 
   # GET /requirements/1/edit
   def edit
+    @requirement.requirement_details.build
   end
 
   # POST /requirements
@@ -77,6 +78,9 @@ class RequirementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def requirement_params
-      params.require(:requirement).permit(:description, :request_date, :completion_date, :percentage_success, :user_assigned, :attachment_url, :user_id, :requirement_state_id, :location_id)
+      # params.require(:requirement).permit(:description, :request_date, :completion_date, :percentage_success, :user_assigned, :attachment_url, :user_id, :requirement_state_id, :location_id)
+
+      # Se le agrega al final todos los parámetros de un detalle de requerimiento
+      params.require(:requirement).permit(:description, :request_date, :completion_date, :percentage_success, :user_assigned, :attachment_url, :user_id, :requirement_state_id, :location_id, requirement_details_attributes: RequirementDetail.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end
