@@ -1,37 +1,71 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Location Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Position name</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @location_contacts.each do |location_contact| %>
-      <tr>
-        <td><%= location_contact.first_name %></td>
-        <td><%= location_contact.last_name %></td>
-        <td><%= location_contact.phone %></td>
-        <td><%= location_contact.email %></td>
-        <td><%= location_contact.position_name %></td>
-        <td><%= location_contact.location_id %></td>
-        <td><%= link_to 'Show', location_contact %></td>
-        <td><%= link_to 'Edit', edit_location_contact_path(location_contact) %></td>
-        <td><%= link_to 'Destroy', location_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1 class="title">Contactos</h1>
 
 <br>
 
-<%= link_to 'New Location Contact', new_location_contact_path %>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_location_contact_path, { :class => "btn btn-outline-success"} %></h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
+              aria-describedby="dataTable_info" style="width: 100%;">
+              <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Nombre</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 60px;">Apellido</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Teléfono</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 60px;">Email</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Posición</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 60px;">Locación</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Start date: activate to sort column ascending" style="width: 40px;"></th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Salary: activate to sort column ascending" style="width: 40px;"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @location_contacts.each do |location_contacts| %>
+                  <tr>
+                    <td><%= location_contacts.first_name %></td>
+                    <td><%= location_contacts.last_name %></td>
+                    <td><%= location_contacts.phone %></td>     
+                    <td><%= location_contacts.email %></td>                      
+                    <td><%= location_contacts.position_name %></td>     
+                    <td><%= Location.select(:name).where("id = " + location_contacts.location_id.to_s).collect(&:name)[0] %></td>
+                    <td><%= link_to 'Detalle', location_contacts, :class => "text-info" %></td>
+                    <td><%= link_to 'Editar', edit_location_contact_path(location_contacts) , :class => "text-warning"%></td>
+                    <td><%= link_to 'Eliminar', location_contacts, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="items">
+          <div class="block-50-left">
+            <%= will_paginate %>
+          </div>
+          <div class="block-50-right">
+            <span class="text-info">Registros: <%= @location_contacts.count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
