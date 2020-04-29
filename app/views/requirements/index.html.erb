@@ -48,8 +48,8 @@
                   <% userCreator = User.find(requirement.user_id) %>
                   <%= "#{userCreator.name} #{userCreator.last_name}" %>
                 </td>
-                <td><%= requirement.request_date.strftime('%d/%m/%Y') %></td>
-                <td><%= requirement.completion_date.strftime('%d/%m/%Y') %></td>
+                <td><%= requirement.request_date %></td>
+                <td><%= requirement.completion_date %></td>
                 <!-- <td><%= "#{requirement.percentage_success} %" %></td> -->
                 <td>
                 <% userAssigned = User.find(requirement.user_assigned) %>
@@ -80,13 +80,13 @@
       </div>
     </div>
     <!-- Links inferiores -->
-    <hr />
+    <!--<hr />
     <ul class="nav small">
       <li class="nav-item">
         <%= link_to 'Nuevo requerimiento', new_requirement_path, class: "btn
         btn-primary btn-sm" %>
-        <!-- <a href="<%= requirements_path %>" class="nav-link py-1 px-2">Crear requerimiento</a> -->
+
       </li>
-    </ul>
+    </ul> -->
   </div>
 </div>

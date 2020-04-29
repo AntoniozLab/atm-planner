@@ -22,10 +22,6 @@
 $(document).on("ready turbolinks:load", function () {
   "use strict"; // Start of use strict
 
-  $(document).on("turbolinks:load", function () {
-    console.log("turbolinks load!");
-  });
-
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
     $("body").toggleClass("sidebar-toggled");
@@ -90,23 +86,24 @@ $(document).on("ready turbolinks:load", function () {
     e.preventDefault();
   });
 
-  // Add datatable
-  $("#dataTable").DataTable({
-    paging: false,
-    bLengthChange: false,
-    bInfo: false,
-    pageLength: 5,
-    language: {
-      lengthMenu: "Mostrar _MENU_ registros",
-      sSearch: "Buscar:",
-      zeroRecords: "No se encontraron resultados",
-      info: "Página _PAGE_ de _PAGES_",
-      infoEmpty: "No hay registros disponibles",
-      infoFiltered: "(filtered from _MAX_ total records)",
-      paginate: {
-        previous: "<",
-        next: ">",
+  if ($("#dataTable_filter").length < 1) {
+    $("#dataTable").DataTable({
+      paging: false,
+      bLengthChange: false,
+      bInfo: false,
+      pageLength: 5,
+      language: {
+        lengthMenu: "Mostrar _MENU_ registros",
+        sSearch: "Buscar:",
+        zeroRecords: "No se encontraron resultados",
+        info: "Página _PAGE_ de _PAGES_",
+        infoEmpty: "No hay registros disponibles",
+        infoFiltered: "(filtered from _MAX_ total records)",
+        paginate: {
+          previous: "<",
+          next: ">",
+        },
       },
-    },
-  });
+    });
+  }
 }); // End of use strict

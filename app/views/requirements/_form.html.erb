@@ -24,6 +24,7 @@
 
   <hr>
 
+  <%# Primera fila %>
   <div class="row">
     <div class="col-6">
       <div class="form-group">
@@ -34,27 +35,32 @@
           <%= form.date_select :request_date, {}, { :class => "form-control form-control-sm col mr-1" } %>
         </div>
       </div>
-
-
-
     </div>
     <div class="col-6">
 
       <div class="form-group">
         <%= form.label :requirement_state_id, "Estado:" %>
-        <%= form.select :requirement_state_id, RequirementState.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm" } %>
-        <!-- <%= form.text_field :requirement_state_id %> -->
+        <% if @requirement.id.nil?
+          optionList = [["Pendiente", 1]]
+          blankValue = false;
+          else
+          optionList = RequirementState.all.collect {|state| [state.name, state.id]}
+          blankValue = "-- Seleccione --"
+          end
+        %>
+
+        <%= form.select :requirement_state_id, optionList, { :include_blank => blankValue }, { :class => "form-control form-control-sm" } %>
+
       </div>
 
     </div>
   </div>
 
-  <%# Primera fila %>
+  <%# Segunda fila %>
   <div class="row">
     <div class="col">
       <div class="form-group">
         <%= form.label :user_assigned, "Asignar a:" %>
-        <!-- <%= form.number_field :user_assigned, class: "form-control form-control-sm" %> -->
         <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
       </div>
 
@@ -63,10 +69,10 @@
       <div class="form-group">
         <%= form.label :location_id, "Lugar" %>
         <%= form.select :location_id, Location.all.collect {|location| [location.name, location.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
-        <!-- <%= form.text_field :location_id, class: "form-control form-control-sm" %> -->
       </div>
     </div>
   </div>
+
 
   <%# segunda fila %>
   <div class="row">
@@ -78,6 +84,22 @@
     </div>
   </div>
 
+  <%# Tercera fila %>
+  <% if @requirement.id? %>
+  <!--<div class="row">
+    <div class="col-sm col-lg-6">
+      <div class="form-group">
+        <div class="form-row mx-0">
+          <%= form.label :completion_date, "Fecha de finalización" %>
+        </div>
+        <div class="form-row mx-0">
+          <%= form.date_select :completion_date, {}, { :class => "form-control form-control-sm col mr-1" } %>
+        </div>
+
+      </div>
+    </div>
+  </div>-->
+  <% end %>
 
   <%# Archivo adjunto %>
   <!-- <div class="row">
@@ -95,18 +117,10 @@
 
 
   <% if @requirement.id? %>
-  <div class="form-group">
-    <%= form.label :completion_date %>
-    <%= form.date_select :completion_date, :include_blank => true %>
-  </div>
-  <% end %>
-
-  <% if @requirement.id? %>
-
-  <div class="form-group">
+  <!--<div class="form-group">
     <%= form.label :percentage_success %>
-    <%= form.text_field :percentage_success %>
-  </div>
+    <%= form.text_field :percentage_success, :readonly => true %>
+  </div> -->
   <% end %>
 
   <%# Nested form %>
