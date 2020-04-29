@@ -11,15 +11,16 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @atm_types.each do |atm_type| %>
-      <tr>
-        <td><%= atm_type.name %></td>
-        <td><%= atm_type.description %></td>
-        <td><%= link_to 'Show', atm_type %></td>
-        <td><%= link_to 'Edit', edit_atm_type_path(atm_type) %></td>
-        <td><%= link_to 'Destroy', atm_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= atm_type.name %></td>
+      <td><%= atm_type.description %></td>
+      <td><%= link_to 'Show', atm_type %></td>
+      <td><%= link_to 'Edit', edit_atm_type_path(atm_type) %></td>
+      <td><%= link_to 'Destroy', atm_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
