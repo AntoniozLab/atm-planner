@@ -1,48 +1,3 @@
-
-
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
-
-<p>
-  <strong>Address reference:</strong>
-  <%= @location.address_reference %>
-</p>
-
-<p>
-  <strong>Active state:</strong>
-  <%= @location.active_state %>
-</p>
-
-<p>
-  <strong>Location type:</strong>
-  <%= @location.location_type_id %>
-</p>
-
-<p>
-  <strong>Location owner:</strong>
-  <%= @location.location_owner_id %>
-</p>
-
-<p>
-  <strong>District:</strong>
-  <%= @location.district_id %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
-
-
-  </div>
-</div>
-
-
 <div class="row">
   <div class="col-lg-10">
 
@@ -75,6 +30,63 @@
                   </div>
               </div>                
           </div>
+
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Dirección:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location.address %>
+                  </div>
+              </div>                
+          </div>
+
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Dirección referencia:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location.address_reference %>
+                  </div>
+              </div>                
+          </div>
+
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Tipo Locación:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= LocationType.select(:name).where("id = "+ @location.location_type_id.to_s).collect(&:name)[0] %>
+                  </div>
+              </div>                
+          </div>
+
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Cliente:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= LocationOwner.select(:name).where("id = "+ @location.location_owner_id.to_s).collect(&:name)[0] %>
+                  </div>
+              </div>                
+          </div>
+
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Distrito:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= District.select(:name).where("id = "+ @location.district_id.to_s).collect(&:name)[0] %>
+                  </div>
+              </div>                
+          </div>
+
+
           <div class="items">
                 <div class="block-50-center">
                   <%= link_to "Editar", edit_location_path(@location), :class => "btn btn-success" %>

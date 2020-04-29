@@ -1,7 +1,7 @@
 <div class="items">
   <div class="block-form">
     <fieldset-standard>      
-      <%= form_with(model: location, local: true) do |form| %>
+      <%= form_with(model: location, local: true, html: {class: 'admin' }) do |form| %>
         <% if location.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -13,6 +13,17 @@
             </ul>
           </div>
         <% end %>
+
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :reference_code, "Código Referencia"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :reference_code, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
         <div class="field">
           <div class="items">
@@ -62,7 +73,7 @@
           <%= form.text_field :active_state %>
         </div>
 
-        <div class="field">
+        <!--<div class="field">
           <div class="items">
             <div class="block-100">
           <%= form.label "Departamento"%>
@@ -82,7 +93,7 @@
               <%= form.select :province_id, Province.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
             </div>
           </div>    
-        </div>
+        </div>-->
 
         <div class="field">
           <div class="items">

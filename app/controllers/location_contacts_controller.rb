@@ -4,7 +4,7 @@ class LocationContactsController < ApplicationController
   # GET /location_contacts
   # GET /location_contacts.json
   def index
-    @location_contacts = LocationContact.all
+    @location_contacts = LocationContact.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /location_contacts/1
@@ -28,7 +28,7 @@ class LocationContactsController < ApplicationController
 
     respond_to do |format|
       if @location_contact.save
-        format.html { redirect_to @location_contact, notice: 'Location contact was successfully created.' }
+        format.html { redirect_to @location_contact, notice: 'Contacto creado exitosamente.' }
         format.json { render :show, status: :created, location: @location_contact }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LocationContactsController < ApplicationController
   def update
     respond_to do |format|
       if @location_contact.update(location_contact_params)
-        format.html { redirect_to @location_contact, notice: 'Location contact was successfully updated.' }
+        format.html { redirect_to @location_contact, notice: 'Contacto actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @location_contact }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LocationContactsController < ApplicationController
   def destroy
     @location_contact.destroy
     respond_to do |format|
-      format.html { redirect_to location_contacts_url, notice: 'Location contact was successfully destroyed.' }
+      format.html { redirect_to location_contacts_url, notice: 'Contacto eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

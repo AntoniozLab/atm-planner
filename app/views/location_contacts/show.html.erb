@@ -1,34 +1,93 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-10">
 
-<p>
-  <strong>First name:</strong>
-  <%= @location_contact.first_name %>
-</p>
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Contacto</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="items">
+          <div class="block-form">
+              <fieldset-standard>
+            <div class="field">
+            <div class="items">
+                <div class="block-100">
+                    <strong>Nombre:</strong> 
+                  </div>
+                    <div class="block-100">
+                      <%= @location_contact.first_name %> 
+                    </div>
+              </div>                
+          </div>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Arellano:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_contact.last_name %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @location_contact.last_name %>
-</p>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Número de teléfono:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_contact.phone %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @location_contact.phone %>
-</p>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Email:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_contact.email %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @location_contact.email %>
-</p>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Posición:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_contact.position_name %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Position name:</strong>
-  <%= @location_contact.position_name %>
-</p>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Locación:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= Location.select(:name).where("id = "+ @location_contact.location_id.to_s).collect(&:name)[0] %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @location_contact.location_id %>
-</p>
-
-<%= link_to 'Edit', edit_location_contact_path(@location_contact) %> |
-<%= link_to 'Back', location_contacts_path %>
+          <div class="items">
+                <div class="block-50-center">
+                  <%= link_to "Editar", edit_location_contact_path(@location_contact), :class => "btn btn-success" %>
+                </div>
+                <div class="block-50-center" >
+                    <%= link_to 'Atras', location_contacts_path, :class => "btn btn-info" %>
+                </div>
+              </div>
+          </fieldset>
+        </div> 
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

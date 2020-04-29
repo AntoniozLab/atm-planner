@@ -1,6 +1,14 @@
-<h1>Editing Location Contact</h1>
-
-<%= render 'form', location_contact: @location_contact %>
-
-<%= link_to 'Show', @location_contact %> |
-<%= link_to 'Back', location_contacts_path %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Editar Contacto</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= render 'form', location_contact: @location_contact %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

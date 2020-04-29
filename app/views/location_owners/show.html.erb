@@ -1,19 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-10">
 
-<p>
-  <strong>Name:</strong>
-  <%= @location_owner.name %>
-</p>
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Cliente</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="items">
+          <div class="block-form">
+              <fieldset-standard>
+            <div class="field">
+            <div class="items">
+                <div class="block-100">
+                    <strong>Nombre:</strong> 
+                  </div>
+                    <div class="block-100">
+                      <%= @location_owner.name %> 
+                    </div>
+              </div>                
+          </div>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Razón Social:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_owner.business_name %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Business name:</strong>
-  <%= @location_owner.business_name %>
-</p>
+            <div class="field">
+              <div class="items">
+                  <div class="block-100">
+                    <strong>Número de documento:</strong>
+                  </div>
+                  <div class="block-100">
+                    <%= @location_owner.document_number %>
+                  </div>
+              </div>                
+          </div>
 
-<p>
-  <strong>Document number:</strong>
-  <%= @location_owner.document_number %>
-</p>
-
-<%= link_to 'Edit', edit_location_owner_path(@location_owner) %> |
-<%= link_to 'Back', location_owners_path %>
+          <div class="items">
+                <div class="block-50-center">
+                  <%= link_to "Editar", edit_location_owner_path(@location_owner), :class => "btn btn-success" %>
+                </div>
+                <div class="block-50-center" >
+                    <%= link_to 'Atras', location_owners_path, :class => "btn btn-info" %>
+                </div>
+              </div>
+          </fieldset>
+        </div> 
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

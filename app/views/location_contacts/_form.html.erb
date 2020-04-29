@@ -1,47 +1,96 @@
-<%= form_with(model: location_contact, local: true) do |form| %>
-  <% if location_contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location_contact.errors.count, "error") %> prohibited this location_contact from being saved:</h2>
+<div class="items">
+  <div class="block-form">
+    <fieldset-standard>    
+      <%= form_with(model: location_contact, local: true) do |form| %>
+        <% if location_contact.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(location_contact.errors.count, "error") %> prohibited this location_contact from being saved:</h2>
 
-      <ul>
-        <% location_contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            <ul>
+              <% location_contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :first_name, "Nombre"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :first_name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :last_name, "Apellido"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :last_name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :phone, "Número de teléfono"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :phone, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :email, "Email"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :email, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :position_name %>
-    <%= form.text_field :position_name %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+              <%= form.label :position_name, "Posición"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :position_name, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
 
-  <div class="field">
-    <%= form.label :location_id %>
-    <%= form.text_field :location_id %>
-  </div>
+        <div class="field">
+          <div class="items">
+            <div class="block-100">
+          <%= form.label "Locación"%>
+            </div>
+            <div class="block-100">
+              <%= form.select :location_id, Location.all.collect {|e| [e.name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+            </div>
+          </div>    
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="items">
+          <div class="block-50-center">
+            <%= form.submit "Guardar", :class => "btn btn-success" %>
+          </div>
+          <div class="block-50-center" >
+              <%= link_to 'Atras', location_contacts_path, :class => "btn btn-info" %>
+          </div>
+        </div> 
+
+      <% end %>
+    </fieldset>
+  </div> 
+</div>
+
