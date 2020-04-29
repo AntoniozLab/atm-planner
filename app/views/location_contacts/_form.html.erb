@@ -4,8 +4,7 @@
       <%= form_with(model: location_contact, local: true) do |form| %>
         <% if location_contact.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(location_contact.errors.count, "error") %> prohibited this location_contact from being saved:</h2>
-
+            <h2 class="text_danger"><%= pluralize(location_contact.errors.count,  "error(es)") %> al registrar</h2>
             <ul>
               <% location_contact.errors.full_messages.each do |message| %>
                 <li><%= message %></li>

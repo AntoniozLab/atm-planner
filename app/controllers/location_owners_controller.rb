@@ -28,7 +28,7 @@ class LocationOwnersController < ApplicationController
 
     respond_to do |format|
       if @location_owner.save
-        format.html { redirect_to @location_owner, notice: 'Location owner was successfully created.' }
+        format.html { redirect_to @location_owner, notice: 'Cliente creado exitosamente.' }
         format.json { render :show, status: :created, location: @location_owner }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LocationOwnersController < ApplicationController
   def update
     respond_to do |format|
       if @location_owner.update(location_owner_params)
-        format.html { redirect_to @location_owner, notice: 'Location owner was successfully updated.' }
+        format.html { redirect_to @location_owner, notice: 'Cliente actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @location_owner }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LocationOwnersController < ApplicationController
   def destroy
     @location_owner.destroy
     respond_to do |format|
-      format.html { redirect_to location_owners_url, notice: 'Location owner was successfully destroyed.' }
+      format.html { redirect_to location_owners_url, notice: 'Cliente eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
