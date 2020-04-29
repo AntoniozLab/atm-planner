@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="title">Clientes</h1>
-
-<br>
+<h1 class="h3 mb-4 text-info font-weight-bold">Clientes</h1>
 
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_location_owner_path, { :class => "btn btn-outline-success"} %></h6>
+    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_location_owner_path, { :class => "btn btn-success btn-sm"} %></h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -20,10 +18,8 @@
                 <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                     aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Nombre</th>
-                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Position: activate to sort column ascending" style="width: 60px;">Razón Social</th>
-                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Número de documento</th>
+                  <th>Razón Social</th>
+                  <th >Número de documento</th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                     aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
@@ -37,8 +33,8 @@
                 <% @location_owners.each do |location_owners| %>
                   <tr>
                     <td><%= location_owners.name %></td>
-                    <td><%= location_owners.business_name %></td>     
-                    <td><%= location_owners.document_number %></td>                      
+                    <td><%= location_owners.business_name %></td>
+                    <td><%= location_owners.document_number %></td>
                     <td><%= link_to 'Detalle', location_owners, :class => "text-info" %></td>
                     <td><%= link_to 'Editar', edit_location_owner_path(location_owners) , :class => "text-warning"%></td>
                     <td><%= link_to 'Eliminar', location_owners, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>

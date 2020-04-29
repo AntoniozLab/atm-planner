@@ -1,45 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h2 class="title">Perfiles de Usuarios</h2>
-
-<br>
-
+<h1 class="h3 mb-4 text-info font-weight-bold">Perfiles de usuarios</h1>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">
-      <%= link_to 'Nuevo Perfil Usuario', new_profile_path, { :class => "btn btn-outline-success"} %></h6>
+      <%= link_to 'Nuevo Perfil Usuario', new_profile_path, { :class => "btn btn-success btn-sm"} %></h6>
   </div>
   <div class="card-body">
-    <div class="table-responsive">
+    <div class="table-responsive small">
       <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
         <div class="row">
           <div class="col-sm-12">
             <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
               aria-describedby="dataTable_info" style="width: 100%;">
-              <thead align="center">
+              <thead>
                 <tr role="row">
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending"
-                    aria-label="Name: activate to sort column descending" style="width: 60px;">
-                    Nombre Perfil</th>
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending"
-                    aria-label="Name: activate to sort column descending" style="width: 60px;">
-                    Tipo</th>
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Position: activate to sort column ascending" style="width: 40px;">Descripción</th>
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Start date: activate to sort column ascending" style="width: 40px;"></th>
-                  <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Salary: activate to sort column ascending" style="width: 40px;"></th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
+
               <tbody>
                 <% @profiles.each do |profile|  %>
-                <tr align="center">
+                <tr>
                   <td><%= profile.name %></td>
-                  <td><%= profile.type %></td>
                   <td><%= profile.description %></td>
                   <td><%= link_to 'Detalle', profile,:class => "text-info" %></td>
                   <td><%= link_to 'Editar', edit_profile_path(profile), :class => "text-warning" %></td>
