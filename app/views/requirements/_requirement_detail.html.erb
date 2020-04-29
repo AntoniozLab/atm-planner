@@ -62,7 +62,7 @@
                     <%= form.label :atm_old, "Cajero a retirar:" %>
                   </div>
 
-                  <%= form.input :atm_old, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+                  <%= form.input :atm_old, label: false, :collection => Proc.new{ Atm.where(atm_state_id: 1).map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
 
                   <!-- <%= form.input :atm_old, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
 
@@ -73,7 +73,7 @@
                   <div class="form-row mx-0">
                     <%= form.label :atm_new, "Cajero a instalar:" %>
                   </div>
-                  <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.all.map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+                  <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.where(atm_state_id: 2).map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
 
                   <!-- <%= form.input :atm_new, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
 
@@ -151,14 +151,6 @@
       </div>
     </div>
   <!--</div>-->
-
-
-
-
-
-
-
-
 
 
 </div>

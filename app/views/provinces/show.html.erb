@@ -1,19 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-10">
 
-<p>
-  <strong>Name:</strong>
-  <%= @province.name %>
-</p>
-
-<p>
-  <strong>Ubigeo:</strong>
-  <%= @province.ubigeo %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @province.department_id %>
-</p>
-
-<%= link_to 'Edit', edit_province_path(@province) %> |
-<%= link_to 'Back', provinces_path %>
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Provincia</h2>
+      </div>
+      <div class="card-body">
+        <div>
+        	<div class="items">
+  				<div class="block-form">
+		          <fieldset-standard>
+				   	<div class="field">
+						<div class="items">
+					    	<div class="block-100">
+					         	<strong>Nombre:</strong> 
+					        </div>
+				            <div class="block-100">
+				            	<%= @province.name %> 
+				            </div>
+					  	</div>                
+					</div>
+				    <div class="field">
+					    <div class="items">
+					        <div class="block-100">
+					      		<strong>Ubigeo:</strong>
+					        </div>
+					        <div class="block-100">
+					       		<%= @province.ubigeo %>
+					        </div>
+					    </div>                
+					</div>
+					<div class="field">
+					    <div class="items">
+					        <div class="block-100">
+					      		<strong>Departamento:</strong>
+					        </div>
+					        <div class="block-100">
+					       		<%= Department.find(@province.department_id).name %>
+					        </div>
+					    </div>                
+					</div>
+					<div class="items">
+			          <div class="block-50-center">
+			            <%= link_to "Editar", edit_province_path(@province), :class => "btn btn-success" %>
+			          </div>
+			          <div class="block-50-center" >
+			              <%= link_to 'Atras', provinces_path, :class => "btn btn-info" %>
+			          </div>
+			        </div>
+				  </fieldset>
+				</div> 
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,14 @@
-<h1>Editing Atm State</h1>
-
-<%= render 'form', atm_state: @atm_state %>
-
-<%= link_to 'Show', @atm_state %> |
-<%= link_to 'Back', atm_states_path %>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h2 class="title">Editar Estado Atm</h2>
+      </div>
+      <div class="card-body">
+        <div>
+          <%= render 'form', atm_state: @atm_state %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

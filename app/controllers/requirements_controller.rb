@@ -27,7 +27,7 @@ class RequirementsController < ApplicationController
 
   # GET /requirements/1/edit
   def edit
-    @requirement.requirement_details.build
+    # @requirement.requirement_details.build
   end
 
   # POST /requirements
