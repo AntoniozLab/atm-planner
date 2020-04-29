@@ -4,8 +4,7 @@
       <%= form_with(model: location, local: true, html: {class: 'admin' }) do |form| %>
         <% if location.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
-
+            <h3 class="text_danger"><%= pluralize(location.errors.count, "error(es)") %> al registrar</h3>
             <ul>
               <% location.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -49,28 +48,24 @@
 
         <div class="field">
           <div class="items">
+            <div class="block-100">
+              <%= form.label :address_reference, "Dirección Referencia"%>
+            </div>
+            <div class="block-100">
+              <%= form.text_field :address_reference, { :class => "form-control"} %>  
+            </div>
+          </div>                
+        </div>
+
+        <div class="field">
+          <div class="items">
             <div class="block-100" >
-            <%= form.label "Razón Social"%>
+            <%= form.label "Cliente"%>
             </div>
             <div class="block-100">                             
               <%= form.select :location_owner_id, LocationOwner.all.collect {|e| [e.business_name, e.id]} , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
             </div>
           </div>    
-        </div>
-
-        <div class="field", style="display: none;">
-          <%= form.label :reference_code%>
-          <%= form.text_field :reference_code %>
-        </div>
-
-        <div class="field", style="display: none;">
-          <%= form.label :address_reference %>
-          <%= form.text_field :address_reference %>
-        </div>
-
-        <div class="field", style="display: none;">
-          <%= form.label :active_state %>
-          <%= form.text_field :active_state %>
         </div>
 
         <!--<div class="field">

@@ -23,6 +23,11 @@ window.$ = $;
 require("custom/sb-admin-2");
 require("custom/requirements");
 require("custom/admin/requirements");
+
+// Para uso de Chart
+require("chartkick")
+require("chart.js")
+
 // require('vendor/datatables/jquery.dataTables.min');
 // require('datatables.net-bs4')($);
 

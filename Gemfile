@@ -40,6 +40,9 @@ gem 'faker'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
+# Crea gráficos chart
+gem "chartkick"
+
 # Construcción de formularios
 gem 'simple_form'
 
