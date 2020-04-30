@@ -1,60 +1,59 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="h3 mb-4 text-info font-weight-bold">Clientes</h1>
+<div class="row">
+  <div class="col-lg-11">
 
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_location_owner_path, { :class => "btn btn-success btn-sm"} %></h6>
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"><%= link_to 'Nuevo registro', new_location_owner_path, { :class => "btn btn-success btn-sm"} %></h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive small">
 
-        <div class="row">
-          <div class="col-sm-12">
-            <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
-              aria-describedby="dataTable_info" style="width: 100%;">
-              <thead>
-                <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Nombre</th>
-                  <th>Razón Social</th>
-                  <th >Número de documento</th>
-                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
-                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Start date: activate to sort column ascending" style="width: 40px;"></th>
-                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                    aria-label="Salary: activate to sort column ascending" style="width: 40px;"></th>
-                </tr>
-              </thead>
+                <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
+                  aria-describedby="dataTable_info" style="width: 100%;">
+                  <thead>
+                    <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                        aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Nombre</th>
+                      <th>Razón Social</th>
+                      <th >Número de documento</th>
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                        aria-label="Age: activate to sort column ascending" style="width: 40px;"></th>
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                        aria-label="Start date: activate to sort column ascending" style="width: 40px;"></th>
+                      <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                        aria-label="Salary: activate to sort column ascending" style="width: 40px;"></th>
+                    </tr>
+                  </thead>
 
-              <tbody>
-                <% @location_owners.each do |location_owners| %>
-                  <tr>
-                    <td><%= location_owners.name %></td>
-                    <td><%= location_owners.business_name %></td>
-                    <td><%= location_owners.document_number %></td>
-                    <td><%= link_to 'Detalle', location_owners, :class => "text-info" %></td>
-                    <td><%= link_to 'Editar', edit_location_owner_path(location_owners) , :class => "text-warning"%></td>
-                    <td><%= link_to 'Eliminar', location_owners, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                  <tbody>
+                    <% @location_owners.each do |location_owners| %>
+                      <tr>
+                        <td><%= location_owners.name %></td>
+                        <td><%= location_owners.business_name %></td>
+                        <td><%= location_owners.document_number %></td>
+                        <td><%= link_to 'Detalle', location_owners, :class => "text-info" %></td>
+                        <td><%= link_to 'Editar', edit_location_owner_path(location_owners) , :class => "text-warning"%></td>
+                        <td><%= link_to 'Eliminar', location_owners, :class => "text-danger", method: :delete, data: { confirm: '¿Esta seguro de elimnar el registro?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
 
-        <div class="items">
-          <div class="block-50-left">
-            <%= will_paginate %>
-          </div>
-          <div class="block-50-right">
-            <span class="text-info">Registros: <%= @location_owners.count %></span>
-          </div>
+
+            <div class="items">
+              <div class="block-50-left">
+                <%= will_paginate %>
+              </div>
+              <div class="block-50-right">
+                <span class="text-info">Registros: <%= @location_owners.count %></span>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
   </div>
 </div>
-

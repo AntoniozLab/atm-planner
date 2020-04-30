@@ -1,15 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @requirement.description %>
-</p>
 
-<p>
-  <strong>Request date:</strong>
-  <%= @requirement.request_date %>
-</p>
+<h1 class="h3 mb-4 text-info font-weight-bold">Detalle de requerimiento</h1>
 
+<div class="row">
+  <div class="col-lg-11">
+
+    <div class="card position-relative">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Detalle</h6>
+      </div>
+      <div class="card-body">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item"><span class="font-weight-bold">Solicitante:</span>
+              <%= User.find(@requirement.user_id).name %> <%= User.find(@requirement.user_id).last_name %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Asignado:</span>
+              <%= User.find(@requirement.user_assigned).name %> <%= User.find(@requirement.user_assigned).last_name %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Fecha:</span> <%= @requirement.request_date %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Descripcion:</span> <%= @requirement.description %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Estado:</span>
+              <%= RequirementState.find(@requirement.requirement_state_id).name %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Cliente:</span>
+              <% location = Location.find(@requirement.location_id) %>
+              <%= LocationOwner.find(location.location_owner_id).name %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Lugar:</span>
+              <%= LocationOwner.find(@requirement.location_id).name %>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Links inferiores -->
+        <hr />
+        <ul class="nav small">
+          <li class="nav-item">
+            <a href="<%= requirements_path %>" class="nav-link py-1 px-2">← Ver todos</a>
+
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Editar', edit_requirement_path(@requirement), class: "nav-link py-1 px-2" %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
 <p>
   <strong>Completion date:</strong>
   <%= @requirement.completion_date %>
@@ -30,20 +75,6 @@
   <%= @requirement.attachment_url %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @requirement.user_id %>
-</p>
-
-<p>
-  <strong>Requirement state:</strong>
-  <%= @requirement.requirement_state_id %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @requirement.location_id %>
-</p>
 
 <%= link_to 'Edit', edit_requirement_path(@requirement) %> |
-<%= link_to 'Back', requirements_path %>
+<%= link_to 'Back', requirements_path %> -->
