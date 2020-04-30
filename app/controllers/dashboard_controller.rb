@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   # Verifica si esta logueado
   before_action :authenticate_user!
+  # before_action :validate_admin
 
   def index
   	@dateLastMonth = Date.today - 1.months
@@ -13,4 +14,13 @@ class DashboardController < ApplicationController
     @users = User.all;
     # @requirements = Requirement.includes(:requirement_states)
   end
+
+  # private
+
+  # def validate_admin
+  #   if authenticate_user.admin!
+  #     redirect_to :controller => 'requirements', :action => 'index'
+  #   end
+
+  # end
 end

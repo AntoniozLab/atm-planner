@@ -10,11 +10,13 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
+  <% if current_user && current_user.admin %>
   <li class="nav-item">
     <a class="nav-link" href="<%= dashboard_index_path %>" data-turbolinks="true">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
+  <% end %>
 
   <!-- Divider -->
   <hr class="sidebar-divider">
@@ -65,7 +67,7 @@
   <!-- Nav Item - Pages Collapse Menu -->
 
 
-
+  <% if current_user && current_user.admin %>
   <hr class="sidebar-divider">
 
   <div class="sidebar-heading">
@@ -136,7 +138,7 @@
       </div>
     </div>
   </li>
-
+  <% end %>
 
   <!-- Nav Item - Pages Collapse Menu -->
   <%#  <li class="nav-item">

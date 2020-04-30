@@ -10,14 +10,11 @@
       </div>
       <div class="card-body">
         <div class="table-responsive small">
-          <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
-            <div class="row">
-              <div class="col-sm-12">
-                <table class="table table-bordered dataTable" width="100%" cellspacing="0" role="grid"
+                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid"
                   aria-describedby="dataTable_info" style="width: 100%;">
                   <thead>
-                    <tr role="row">
+                    <tr>
                       <th>Nro. serie</th>
                       <th>Descripción</th>
                       <th>Fecha Manufactura</th>
@@ -49,8 +46,7 @@
                   </tbody>
                 </table>
 
-              </div>
-            </div>
+
             <div class="items">
               <div class="block-50-left">
                 <%= will_paginate %>
@@ -59,7 +55,7 @@
                 <span class="text-info">Registros: <%= @atms.count %></span>
               </div>
             </div>
-          </div>
+
         </div>
       </div>
     </div>

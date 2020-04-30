@@ -61,7 +61,7 @@
     <div class="col">
       <div class="form-group">
         <%= form.label :user_assigned, "Asignar a:" %>
-        <%= form.select :user_assigned, User.all.collect {|e| [e.name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
+        <%= form.select :user_assigned, User.all.collect {|e| [e.name + ' ' + e.last_name, e.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
       </div>
 
     </div>
