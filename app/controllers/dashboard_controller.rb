@@ -11,5 +11,6 @@ class DashboardController < ApplicationController
     @atmsInstalados = Atm.where("atm_state_id = 1").count
 
     @users = User.all;
+    # @requirements = Requirement.includes(:requirement_states)
   end
 end
