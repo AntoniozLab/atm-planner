@@ -9,120 +9,93 @@
         de
         instalación, retiro o movimiento de cajero.</p>
     </div> -->
+
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <!-- <h6 class="m-0 font-weight-bold text-primary"></h6> -->
         <%= link_to 'Nuevo requerimiento', new_requirement_path, class: "btn btn-primary btn-sm" %>
       </div>
       <div class="card-body">
-        <div class="table-responsive small">
-          <table
-            class="table table-bordered"
-            id="dataTable"
-            width="100%"
-            cellspacing="0"
-          >
-            <thead>
-              <tr>
-                <th>Solicitante</th>
-                <th>Solicitud</th>
-                <th>Finalización</th>
-                <!-- <th>Porcentaje</th> -->
-                <th>Asignado</th>
-                <!-- <th>Attachment url</th> -->
 
-                <th>Estado</th>
-                <th>Cliente</th>
-                <th>Lugar</th>
-                <th></th>
-                <th></th>
-                <% if current_user && current_user.admin %>
-                <th></th>
-                <% end %>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @requirements.each do |requirement| %>
-
-
-                <% if current_user && current_user.admin %>
+        <% if current_user && @requirements.length() %>
+          <div class="table-responsive small">
+            <table
+              class="table table-bordered"
+              id="dataTable"
+              width="100%"
+              cellspacing="0"
+            >
+              <thead>
                 <tr>
-                  <td>
-                    <% userCreator = User.find(requirement.user_id) %>
-                    <%= "#{userCreator.name} #{userCreator.last_name}" %>
-                  </td>
-                  <td><%= requirement.request_date %></td>
-                  <td><%= requirement.completion_date %></td>
-                  <!-- <td><%= "#{requirement.percentage_success} %" %></td> -->
-                  <td>
-                  <% userAssigned = User.find(requirement.user_assigned) %>
-                  <%= "#{userAssigned.name} #{userAssigned.last_name}" %>
-                  </td>
-                  <!-- <td><%= requirement.attachment_url %></td> -->
-                  <td>
-                    <%= RequirementState.find(requirement.requirement_state_id).name %>
-                  </td>
-                  <td>
-                  <% location = Location.find(requirement.location_id) %>
-                  <%= LocationOwner.find(location.location_owner_id).name %>
-                  </td>
-                  <td><%= location.name %></td>
-                  <td><%= link_to 'Show', requirement %></td>
-                  <td>
-                    <%= link_to 'Edit', edit_requirement_path(requirement) %>
-                  </td>
+                  <th>Solicitante</th>
+                  <th>Solicitud</th>
+                  <th>Finalización</th>
+                  <!-- <th>Porcentaje</th> -->
+                  <th>Asignado</th>
+                  <!-- <th>Attachment url</th> -->
+
+                  <th>Estado</th>
+                  <th>Cliente</th>
+                  <th>Lugar</th>
+                  <th></th>
+                  <th></th>
                   <% if current_user && current_user.admin %>
-                  <td>
-                    <%= link_to 'Destroy', requirement, method: :delete, data: {
-                    confirm: 'Desea eliminar?' } %>
-                  </td>
+                  <th></th>
                   <% end %>
                 </tr>
-                <% end %>
+              </thead>
 
-                <% if current_user %>
-
-                <% if requirement.user_id === current_user.id %>
-                <tr>
-                  <td>
-                    <% userCreator = User.find(requirement.user_id) %>
-                    <%= "#{userCreator.name} #{userCreator.last_name}" %>
-                  </td>
-                  <td><%= requirement.request_date %></td>
-                  <td><%= requirement.completion_date %></td>
-                  <!-- <td><%= "#{requirement.percentage_success} %" %></td> -->
-                  <td>
+              <tbody>
+                <% @requirements.each do |requirement| %>
+                  <%# Recopilamos datos necesarios de las filas %>
+                  <% userCreator = User.find(requirement.user_id) %>
                   <% userAssigned = User.find(requirement.user_assigned) %>
-                  <%= "#{userAssigned.name} #{userAssigned.last_name}" %>
-                  </td>
-                  <!-- <td><%= requirement.attachment_url %></td> -->
-                  <td>
-                    <%= RequirementState.find(requirement.requirement_state_id).name %>
-                  </td>
-                  <td>
-                  <% location = Location.find(requirement.location_id) %>
-                  <%= LocationOwner.find(location.location_owner_id).name %>
-                  </td>
-                  <td><%= location.name %></td>
-                  <td><%= link_to 'Show', requirement %></td>
-                  <td>
-                    <%= link_to 'Edit', edit_requirement_path(requirement) %>
-                  </td>
-                  <% if current_user && current_user.admin %>
-                  <td>
-                    <%= link_to 'Destroy', requirement, method: :delete, data: {
-                    confirm: 'Desea eliminar?' } %>
-                  </td>
-                  <% end %>
-                </tr>
-                <% end %>
-                <% end %>
 
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+                  <%# Se muestra cuando el usuario tiene asignado requerimientos %>
+                  <% if (userCreator.id == current_user.id) || (current_user.id == userAssigned.id) || current_user.admin %>
+                    <tr>
+                      <td>
+
+                        <%= "#{userCreator.name} #{userCreator.last_name}" %>
+                      </td>
+                      <td><%= requirement.request_date %></td>
+                      <td><%= requirement.completion_date %></td>
+                      <!-- <td><%= "#{requirement.percentage_success} %" %></td> -->
+                      <td>
+
+                      <%= "#{userAssigned.name} #{userAssigned.last_name}" %>
+                      <%= "#{userAssigned.id} vs #{current_user.id}"  %>
+                      </td>
+                      <!-- <td><%= requirement.attachment_url %></td> -->
+                      <td>
+                        <%= RequirementState.find(requirement.requirement_state_id).name %>
+                      </td>
+                      <td>
+                      <% location = Location.find(requirement.location_id) %>
+                      <%= LocationOwner.find(location.location_owner_id).name %>
+                      </td>
+                      <td><%= location.name %></td>
+                      <td><%= link_to 'Show', requirement %></td>
+                      <td>
+                        <%= link_to 'Edit', edit_requirement_path(requirement) %>
+                      </td>
+                      <% if current_user && current_user.admin %>
+                      <td>
+                        <%# Habilita esta opción sólo para administradores %>
+                        <% if current_user.admin %>
+                          <%= link_to 'Destroy', requirement, method: :delete, data: {
+                        confirm: 'Desea eliminar?' } %>
+                        <% end %>
+                      </td>
+                      <% end %>
+                    </tr>
+                  <% end %>
+
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
       </div>
     </div>
     <!-- Links inferiores -->
