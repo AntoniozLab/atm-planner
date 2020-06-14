@@ -23,4 +23,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: postgresql-dimensional-67930
+  url: <%= ENV['DATABASE_URL'] %>
