@@ -67,22 +67,43 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <%= form.label :location_id, "Lugar" %>
+        <%= form.label :location_id, "Locación" %>
         <%= form.select :location_id, Location.all.collect {|location| [location.name, location.id]}, { :include_blank => "-- Seleccione --" }, { :class => "form-control form-control-sm selectize" } %>
       </div>
     </div>
   </div>
 
 
-  <%# segunda fila %>
+  <%# tercera fila %>
   <div class="row">
     <div class="col-12">
       <div class="form-group">
-        <%= form.label :description, "Descripción" %>
+        <%= form.label :description, "Nota de requerimiento" %>
         <%= form.text_field :description, class: "form-control form-control-sm", placeholder: "Opcional" %>
       </div>
     </div>
   </div>
+
+  <%# cuarta fila %>
+  <%# Verifica si tiene fecha de finalización para mostrarlo %>
+
+  <% if @requirement.completion_date  %>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <div class="form-row mx-0">
+            <label>Fecha de finalización</label>
+          </div>
+          <div class="form-row mx-0">
+            <%= form.text_field :completion_date,  :class => "form-control form-control-sm col mr-1", readonly: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+
 
   <%# Tercera fila %>
   <% if @requirement.id? %>
@@ -124,7 +145,7 @@
   <% end %>
 
   <%# Nested form %>
-  <%# Detalle de requerimiento %>
+  <%# Detalle de requerimiento, formulario anidado %>
   <div class="form-group">
     <%= form.simple_fields_for :requirement_details do |builder|  %>
       <%= render 'requirement_detail', form: builder  %>

@@ -21,8 +21,6 @@
             </li>
             <li class="list-group-item"><span class="font-weight-bold">Fecha:</span> <%= @requirement.request_date %>
             </li>
-            <li class="list-group-item"><span class="font-weight-bold">Descripcion:</span> <%= @requirement.description %>
-            </li>
             <li class="list-group-item"><span class="font-weight-bold">Estado:</span>
               <%= RequirementState.find(@requirement.requirement_state_id).name %>
             </li>
@@ -30,8 +28,10 @@
               <% location = Location.find(@requirement.location_id) %>
               <%= LocationOwner.find(location.location_owner_id).name %>
             </li>
-            <li class="list-group-item"><span class="font-weight-bold">Lugar:</span>
-              <%= LocationOwner.find(@requirement.location_id).name %>
+            <li class="list-group-item"><span class="font-weight-bold">Locación:</span>
+              <%= location.name %>
+            </li>
+            <li class="list-group-item"><span class="font-weight-bold">Nota del requerimiento:</span> <%= @requirement.description %>
             </li>
           </ul>
 

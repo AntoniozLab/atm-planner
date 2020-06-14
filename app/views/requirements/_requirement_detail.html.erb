@@ -13,7 +13,7 @@
                 <div class="form-group">
 
                   <div class="form-row mx-0">
-                    <%= form.label :atm_old, "Tipo:" %>
+                    <%= form.label :requirement_type_id, "Tipo:" %>
                   </div>
 
                   <%= form.input :requirement_type_id, label: false, :collection => Proc.new{ RequirementType.all.map{ |type| [type.name, type.id, :class => "type-#{type.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm js_rq-type' } %>
@@ -37,6 +37,7 @@
                     <%= form.label :requirement_detail_state_id, "Estado:" %>
                   </div>
 
+                  <%# Verifica si es un requerimiento nuevo o esta editándose %>
                   <% if @requirement.id.nil? %>
 
                     <%= form.input :requirement_detail_state_id, label: false, :collection => [['Nuevo', '1']] , selected: 1, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm state-selectizex' } %>
@@ -73,7 +74,16 @@
                   <div class="form-row mx-0">
                     <%= form.label :atm_new, "Cajero a instalar:" %>
                   </div>
-                  <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.where(atm_state_id: 2).map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+
+                  <%# Listado de todos los ATMS según el estado %>
+                  <% if @requirement.id.nil? %>
+                    <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.where(atm_state_id: 2).map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+                  <% else %>
+
+                    <%# Muestra sólo el ATM con que se creó %>
+                    <%= form.input :atm_new, label: false, :collection => Proc.new{ Atm.where(id: form.object.atm_new).map{ |atm| [atm.serial_number, atm.id, :class => "atm-#{atm.id}"] } } , wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm atm-selectize' } %>
+
+                  <% end %>
 
                   <!-- <%= form.input :atm_new, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%> -->
 
@@ -106,15 +116,15 @@
 
 
               <div class="col-6">
-                <% if @requirement.id? %>
-                <div class="form-group">
-                  <div class="form-row mx-0">
-                    <%= form.label :end_date, "Fecha de finalización:" %>
+                <% if @requirement.id? and (form.object.requirement_detail_state_id == 2 || form.object.requirement_detail_state_id == 3) %>
+                  <div class="form-group">
+                    <div class="form-row mx-0">
+                      <%= form.label :end_date, "Fecha de finalización:" %>
+                    </div>
+                    <%= form.input :end_date, label: false, as: :date, start_year: Date.today.year,
+                                    end_year: Date.today.year - 12, discard_day: false,
+                                    order: [:year, :month, :day], :include_blank => true, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
                   </div>
-                  <%= form.input :end_date, label: false, as: :date, start_year: Date.today.year,
-                                  end_year: Date.today.year - 12, discard_day: false,
-                                  order: [:year, :month, :day], :include_blank => true, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm col mr-1' }%>
-                </div>
 
                 <% end %>
               </div>
@@ -127,7 +137,7 @@
               <div class="col">
                 <div class="form-group">
                   <div class="form-row mx-0">
-                    <%= form.label :description, "Descripción:" %>
+                    <%= form.label :description, "Nota de cajero:" %>
                   </div>
                   <%= form.input :description, label: false, wrapper_html: { class: 'form-row mx-0' }, input_html: { class: 'form-control form-control-sm' }%>
                 </div>
